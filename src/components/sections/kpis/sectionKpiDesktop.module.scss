@@ -1,0 +1,25 @@
+.wrapper {
+  display: none;
+  @media (min-width: $media-m) {
+    display: block;
+    padding-inline: 4rem;
+  }
+
+  .banner {
+    height: fit-content;
+  }
+  .content {
+    margin-top: 2rem;
+    .intro,
+    .col {
+      margin-top: 6rem;
+      .image {
+        margin-bottom: 2.2rem;
+      }
+    }
+    .col {
+      height: 100%;
+      margin: auto 0;
+    }
+  }
+}

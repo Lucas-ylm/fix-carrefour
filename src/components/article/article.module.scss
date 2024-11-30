@@ -1,0 +1,32 @@
+.title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 3rem;
+  @media (min-width: $media-m) {
+    height: 4rem;
+  }
+  .article {
+    color: var(--color);
+    font-family: var(--font-reddit-normal);
+    font-size: 1.7rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+    text-transform: uppercase;
+    @media (min-width: $media-m) {
+      padding-left: 0;
+      font-size: 2.8rem;
+    }
+  }
+  .article[data-color="blue"] {
+    --color: #{$blue-banner};
+  }
+  .article[data-color="red"] {
+    --color: #{$red-avatar};
+  }
+  .article[data-color="yellow"] {
+    --color: #{$yellow-avatar};
+  }
+}

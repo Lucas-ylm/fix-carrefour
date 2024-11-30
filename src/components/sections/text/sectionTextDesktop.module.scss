@@ -1,0 +1,19 @@
+.wrapper {
+  display: none;
+  @media (min-width: $media-m) {
+    display: grid;
+    position: relative;
+    height: 100%;
+    min-height: 768px;
+  }
+
+  .block1 {
+    margin-top: 6.76vh;
+  }
+  .block2 {
+    margin-top: 20.69vh;
+  }
+  .center {
+    margin-top: 13.28vh;
+  }
+}

@@ -1,0 +1,31 @@
+.special {
+  > div {
+    > div:nth-child(2) {
+      > div:nth-child(2) {
+        gap: 0.8rem;
+        > div {
+          flex-direction: column-reverse;
+
+          > p:nth-child(1) {
+            color: $black-text;
+            font-weight: 300;
+            font-size: 14px;
+            // max-width: 90%;
+            // margin: 0 auto;
+          }
+        }
+        > div:nth-child(2) {
+          > p:nth-child(1) {
+            color: $black-text;
+            font-weight: 300;
+            font-size: 14px;
+            // margin-top: 3rem;
+          }
+        }
+      }
+    }
+  }
+}
+.col {
+  width: 100%;
+}

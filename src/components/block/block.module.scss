@@ -1,0 +1,97 @@
+.text {
+  color: $black-text;
+  font-family: var(--font-reddit-normal);
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%;
+  @media (min-width: $media-m) {
+    font-size: 1.6rem;
+  }
+}
+
+.slogan {
+  color: $white;
+  font-family: var(--font-reddit-normal);
+  font-size: 2.8rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 100%;
+  @media (min-width: $media-m) {
+    text-align: center;
+    font-size: 3.8rem;
+  }
+}
+.title {
+  color: $black-text;
+  font-family: var(--font-reddit-normal);
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  @media (min-width: $media-m) {
+    line-height: normal;
+    font-size: 2.8rem;
+  }
+}
+.subtitle {
+  color: $white;
+  text-align: center;
+  font-family: var(--font-reddit-normal);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  @media (min-width: $media-m) {
+    font-size: 3.6rem;
+  }
+}
+.chapo {
+  color: $black-text;
+  font-family: var(--font-reddit-normal);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.legend {
+  color: $black-text;
+  font-family: var(--font-reddit-normal);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+}
+.quote {
+  font-family: var(--font-reddit-normal);
+  font-size: 6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.2rem;
+  @media (min-width: $media-m) {
+    font-size: 11rem;
+  }
+}
+.extract {
+  font-family: var(--font-reddit-normal);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  @media (min-width: $media-m) {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+  // @media (min-width: $media-l) {
+  //   font-size: 2.2rem;
+  //   line-height: 2.8rem;
+  // }
+}
+.card {
+  color: $black-text;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-family: var(--font-reddit-normal);
+  font-size: 1.6rem;
+}

@@ -1,0 +1,56 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // gap: 1.4rem;
+  min-height: 6rem;
+  background-color: $white;
+  z-index: 1;
+  margin: auto 0;
+  position: relative;
+  top: 15rem;
+
+  .quote {
+    color: var(--color);
+    @media (min-width: $media-l) {
+      transform: translateY(-30%);
+    }
+    &:last-child {
+      transform: translateY(-180%) rotateZ(180deg);
+      @media (min-width: $media-l) {
+        transform: translateY(-210%) rotateZ(180deg);
+      }
+    }
+  }
+
+  .citation,
+  .quote {
+    color: var(--color);
+  }
+  .citation {
+    text-align: center;
+    width: 32rem;
+    @media (min-width: $media-l) {
+      width: 37rem;
+    }
+  }
+}
+
+.wrapper[data-color="blue"] {
+  .citation,
+  .quote {
+    --color: #{$blue-banner};
+  }
+}
+.wrapper[data-color="red"] {
+  .citation,
+  .quote {
+    --color: #{$red-avatar};
+  }
+}
+.wrapper[data-color="yellow"] {
+  .citation,
+  .quote {
+    --color: #{$yellow-avatar};
+  }
+}

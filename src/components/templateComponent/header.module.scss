@@ -1,0 +1,62 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  .first {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5.045rem;
+    border-top: 3px solid $blue-header;
+    border-bottom: 1px solid $grey-header;
+    padding-inline: 6.25vw;
+
+    .home {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      .svgHome {
+        min-width: 1.5rem;
+        height: 1.4rem;
+        width: 1.4rem;
+      }
+      .svgLemonde {
+        height: 2rem;
+        width: 9.33rem;
+      }
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+  }
+  .second {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.955rem;
+    border-bottom: 1px solid $grey-header;
+    padding-inline: 6.25vw;
+    .logoBrand {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+
+      .title {
+        font-family: var(--font-arimo);
+        font-size: 1.3rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+.wrapper {
+  background-color: var(--bg-kpi);
+  border-radius: 20px;
+  padding: 1.8rem 1rem;
+  min-height: 19rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 2.2rem;
+  @media (min-width: $media-m) {
+    position: relative;
+  }
+  .title,
+  .container,
+  .mainText {
+    text-align: center;
+  }
+
+  .mainText {
+    &:last-child {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .title {
+    text-transform: uppercase;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    @media (min-width: $media-m) {
+      width: unset;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      .number,
+      .text {
+        color: var(--color-kpi);
+        font-family: var(--font-reddit-normal);
+        font-size: 4rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .text {
+        color: var(--color-kpi);
+        font-size: 1.6rem;
+      }
+
+      .number[data-color="green"] {
+        --color-kpi: #{$green-kpi};
+      }
+      .number[data-color="orange"] {
+        --color-kpi: #{$orange-kpi};
+      }
+      .number[data-color="darkgreen"] {
+        --color-kpi: #{$darkgreen-kpi};
+      }
+      .number[data-color="blue"] {
+        --color-kpi: #{$blue-kpi};
+      }
+      .text[data-color="green"] {
+        --color-kpi: #{$green-kpi};
+      }
+      .text[data-color="orange"] {
+        --color-kpi: #{$orange-kpi};
+      }
+      .text[data-color="darkgreen"] {
+        --color-kpi: #{$darkgreen-kpi};
+      }
+      .text[data-color="blue"] {
+        --color-kpi: #{$blue-kpi};
+      }
+    }
+  }
+
+  .decoration {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .image {
+      width: 28.4rem;
+      transform: translateX(30%) translateY(30%);
+      &:last-child {
+        transform: translateX(-30%) translateY(30%);
+      }
+      @media (min-width: $media-m) {
+        position: absolute;
+        top: 50%;
+        left: -300px;
+      }
+    }
+  }
+}
+
+.wrapper[data-color="green"] {
+  --bg-kpi: #{$bg-green-kpi};
+}
+.wrapper[data-color="orange"] {
+  --bg-kpi: #{$bg-orange-kpi};
+}
+.wrapper[data-color="darkgreen"] {
+  --bg-kpi: #{$bg-darkgreen-kpi};
+}
+.wrapper[data-color="blue"] {
+  --bg-kpi: #{$bg-blue-kpi};
+}

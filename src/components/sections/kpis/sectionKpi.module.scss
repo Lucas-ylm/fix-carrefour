@@ -1,0 +1,14 @@
+.wrapper {
+  overflow: hidden;
+  @media (min-width: $media-m) {
+    display: none;
+  }
+  .image,
+  .text {
+    align-self: center;
+    margin-block: 2rem;
+  }
+  .image {
+    justify-self: center;
+  }
+}

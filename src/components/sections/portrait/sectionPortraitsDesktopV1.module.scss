@@ -1,0 +1,113 @@
+.wrapper {
+  display: none;
+  @media (min-width: $media-m) {
+    display: block;
+    margin-top: 10rem;
+    height: calc(450vh - 10rem);
+  }
+  @media (min-width: $media-l) {
+    height: calc(450vh - 10rem);
+  }
+  @media (min-width: $media-xl) {
+    height: calc(180vh - 10rem);
+  }
+  .frame {
+    top: 10rem;
+    position: sticky;
+    background-color: transparent;
+    z-index: 1;
+
+    .container {
+      height: 8rem;
+      background-color: transparent;
+
+      .left {
+        height: fit-content;
+        position: relative;
+      }
+      .right {
+        background-color: $white;
+        position: relative;
+        height: fit-content;
+
+        .openName {
+          height: 8rem;
+          overflow: hidden;
+          .title {
+            height: 8rem;
+            background-color: $white;
+          }
+        }
+        .absolute {
+          position: absolute;
+          top: 12rem;
+          left: 0;
+          .openPicture {
+            height: 20rem;
+            overflow: hidden;
+            // @media (min-width: $media-l) {
+            //   height: 34rem;
+            // }
+            > div {
+              > div {
+                top: unset;
+              }
+            }
+          }
+          .openExtract {
+            height: 11rem;
+            overflow: hidden;
+            > div {
+              > div {
+                min-height: 11rem;
+                top: unset;
+                margin: auto 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .content {
+    position: relative;
+    height: fit-content;
+    margin-top: 5rem;
+    .text1 {
+      min-height: 800px;
+      @media (min-height: 981px) {
+        min-height: 700px;
+      }
+      @media (min-height: 1023px) {
+        min-height: 600px;
+      }
+      @media (min-height: 1200px) {
+        min-height: 0;
+      }
+    }
+    .text2 {
+      min-height: 1050px;
+      @media (min-height: 981px) {
+        min-height: 950px;
+      }
+      @media (min-height: 1023px) {
+        min-height: 850px;
+      }
+      @media (min-height: 1200px) {
+        min-height: 0;
+      }
+    }
+    .text3 {
+      min-height: 1150px;
+      @media (min-height: 899px) {
+        min-height: 1050px;
+      }
+      @media (min-height: 1023px) {
+        min-height: 1050px;
+      }
+      @media (min-height: 1200px) {
+        min-height: 0;
+      }
+    }
+  }
+}

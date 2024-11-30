@@ -1,0 +1,119 @@
+.wrapper {
+  display: none;
+  @media (min-width: $media-m) {
+    display: grid;
+  }
+  .title {
+    grid-row: 1;
+    margin-block: 0;
+    margin-block: 6rem;
+    text-align: center;
+  }
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+    justify-content: center;
+
+    .image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      width: 19rem;
+      height: 19rem;
+    }
+
+    .box {
+      width: 45%;
+      height: 360px;
+      background-color: $bg-green-kpi;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: fit-content;
+        .text {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 2rem;
+          .hide {
+            min-width: 4.3rem;
+            width: 4.3rem;
+            height: 3.2rem;
+          }
+          .intro {
+            flex-grow: 1;
+            color: $black-text;
+            font-family: var(--font-reddit-normal);
+            font-size: 2rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 130%;
+          }
+        }
+
+        .lists {
+          .list {
+            margin-bottom: 2rem;
+            .line {
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+
+              .logo {
+                width: 4.3rem;
+                height: 3.2rem;
+              }
+
+              .content {
+                color: $black-text;
+                font-family: var(--font-reddit-normal);
+                font-size: 2rem;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 130%;
+              }
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .content1 {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+        .keyNumber {
+          color: $black-text;
+          font-family: var(--font-reddit-normal);
+          font-style: normal;
+          font-weight: 700;
+          .number {
+            font-size: 5rem;
+            line-height: normal;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+          }
+          .value {
+            font-size: 2rem;
+            line-height: normal;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+
+  @media (min-width: $media-m) {
+    display: none;
+  }
+
+  &:last-child {
+    padding-bottom: 13rem;
+  }
+}

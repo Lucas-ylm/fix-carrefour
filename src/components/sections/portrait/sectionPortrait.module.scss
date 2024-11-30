@@ -1,0 +1,26 @@
+.wrapper {
+  @media (min-width: $media-m) {
+    display: none;
+  }
+  .info {
+    top: 10rem;
+    position: sticky;
+    background-color: $white;
+
+    display: flex;
+    flex-direction: column;
+    .avatar,
+    .extract {
+      padding-inline: 2rem;
+    }
+    .subtitle {
+      width: 100%;
+      background-color: $blue-banner;
+      padding-block: 1.5rem;
+      margin-bottom: 1rem;
+      @media (min-width: $media-m) {
+        padding-block: 2.2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.decoration {
+  margin-top: 5.2rem;
+  width: 4rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (min-width: $media-m) {
+    width: 10.3rem;
+    height: 7.7rem;
+    margin: 0 auto;
+  }
+}
+.chapo {
+  &:first-child {
+    margin-top: 3.2rem;
+  }
+}
+.legend {
+  margin-bottom: 2.7rem;
+}
+.text {
+  &:last-child {
+    margin-bottom: 3.2rem;
+  }
+}
+.title,
+.chapo,
+.text,
+.legend {
+  height: fit-content;
+}
+
+.titleCenter,
+.textCenter {
+  @media (min-width: $media-m) {
+    text-align: center;
+    height: fit-content;
+    width: 100%;
+  }
+}

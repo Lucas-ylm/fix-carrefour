@@ -1,0 +1,281 @@
+@use "sass:math";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  height: unset;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  // -webkit-appearance: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  // box-sizing: content-box;
+  // outline: 1px solid lime;
+}
+
+$max-grid-columns: 13;
+$max-small-grid-columns: 12;
+$max-grid-rows: 12;
+$max-small-grid-rows: 12;
+
+$media-xl: 1560px;
+$media-l: 1200px;
+$media-m: 1024px;
+$media-s: 840px;
+$media-xs: 480px;
+
+@mixin columns($prefix, $max-columns) {
+  @for $i from 1 through $max-columns {
+    .col#{$prefix}#{$i} {
+      --grid-cols: #{$i};
+      grid-column-end: span #{$i};
+    }
+
+    .col#{$prefix}start-#{$i} {
+      grid-column-start: #{$i};
+    }
+  }
+
+  .col#{$prefix}start-auto {
+    grid-column-start: auto;
+  }
+}
+
+@mixin rows($prefix, $max-rows) {
+  @for $i from 1 through $max-rows {
+    .grid-row#{$prefix}#{$i} {
+      grid-row: #{$i};
+    }
+
+    .grid-row#{$prefix}start-#{$i} {
+      grid-row-start: #{$i};
+    }
+
+    .grid-row#{$prefix}end-#{$i} {
+      grid-row-end: #{$i};
+    }
+  }
+
+  .grid-row#{$prefix}start-auto {
+    grid-row-start: auto;
+  }
+
+  .grid-row#{$prefix}end-auto {
+    grid-row-end: auto;
+  }
+
+  @for $start from 1 through $max-rows {
+    @for $end from $start + 1 through $max-rows {
+      .grid-row#{$prefix}#{$start}-#{$end} {
+        grid-row: #{$start} / #{$end};
+      }
+    }
+  }
+}
+
+:root {
+  --grid-gap: #{math.div(30, 1920) * 100vw};
+  --grid-cols: #{$max-small-grid-columns};
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --grid-cols: #{$max-grid-columns};
+  }
+}
+
+@mixin grid-gap($gap) {
+  column-gap: #{$gap};
+}
+
+@mixin row-gap($gap) {
+  row-gap: #{$gap};
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  @include grid-gap(var(--grid-gap, 0));
+  grid-template-columns: repeat(
+    var(--grid-cols),
+    calc(
+      (100% - var(--grid-gap, 0) * (var(--grid-cols) - 1)) / var(--grid-cols)
+    )
+  );
+  grid-template-rows: repeat(auto-fit, 1fr);
+  border-collapse: collapse;
+  & > * {
+    grid-column-start: 1;
+    grid-column-end: calc(var(--grid-cols) + 1);
+    grid-row: auto;
+  }
+
+  &.marged {
+    width: unset;
+    padding: 0 2rem;
+    @media (min-width: $media-s) {
+      padding: 0 4rem;
+    }
+  }
+}
+
+.grid--row-gap-custom {
+  @include row-gap(20px);
+}
+
+.grid--gap-custom {
+  @include grid-gap(10px);
+}
+
+.grid--center {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-flow-col {
+  grid-auto-flow: column;
+}
+
+@include columns("-", $max-grid-columns);
+@include rows("-", $max-grid-rows);
+
+@media (min-width: $media-xs) {
+  @include columns("-xs-", $max-small-grid-columns);
+  @include rows("-xs-", $max-small-grid-rows);
+}
+
+@media (min-width: $media-s) {
+  @include columns("-s-", $max-small-grid-columns);
+  @include rows("-s-", $max-small-grid-rows);
+}
+
+@media (min-width: $media-m) {
+  @include columns("-m-", $max-grid-columns);
+  @include rows("-m-", $max-grid-rows);
+}
+
+@media (min-width: $media-l) {
+  @include columns("-l-", $max-grid-columns);
+  @include rows("-l-", $max-grid-rows);
+}
+
+@media (min-width: $media-xl) {
+  @include columns("-xl-", $max-grid-columns);
+  @include rows("-xl-", $max-grid-rows);
+}
