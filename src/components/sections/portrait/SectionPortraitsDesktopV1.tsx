@@ -61,6 +61,16 @@ export default function SectionPortraitDesktopV1({ index }: Props) {
                 id={`anchor_${index}`}
               />
             </motion.div>
+          </div>
+          <div className={`col-m-start-8 col-m-6 ${styles.right}`}>
+            <Article article={currentData.article} color={currentData.color} />
+            <Name name={currentData.avatar.name} type="desktop" />
+            <Description
+              description={currentData.avatar.description}
+              type="desktop"
+            />
+          </div>
+          <div className={`col-m-start-8 col-m-6 ${styles.frame}`}>
             <ImgAvatar
               srcProfile={currentData.avatar.srcProfile}
               altProfile={currentData.avatar.altProfile}
@@ -74,32 +84,24 @@ export default function SectionPortraitDesktopV1({ index }: Props) {
               color={currentData.color}
             />
           </div>
-          <div className={`col-m-start-8 col-m-6 ${styles.right}`}>
-            <Article article={currentData.article} color={currentData.color} />
-            <Name name={currentData.avatar.name} type="desktop" />
-            <Description
-              description={currentData.avatar.description}
-              type="desktop"
-            />
-          </div>
         </div>
       </div>
       <div className={`grid marged ${styles.content}`}>
         <Content
           data={data[2].content}
-          className={`col-m-start-8 col-m-5 ${styles.text}`}
+          className={`col-m-start-2 col-m-5 ${styles.text}`}
           ref={contentRef1}
           id="anchor_6"
         />
         <Content
           data={data[3].content}
-          className={`col-m-start-8 col-m-5 ${styles.text}`}
+          className={`col-m-start-2 col-m-5 ${styles.text}`}
           ref={contentRef2}
           id="anchor_7"
         />
         <Content
           data={data[4].content}
-          className={`col-m-start-8 col-m-5 ${styles.text}`}
+          className={`col-m-start-2 col-m-5 ${styles.text}`}
           ref={contentRef3}
           id="anchor_8"
         />
