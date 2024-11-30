@@ -77,41 +77,16 @@ export default function Home() {
       <SectionKpiDesktop />
       <SectionPortraits2 />
 
-      <div
-        id={`anchor_9`}
-        style={{
-          display: width < 1024 ? "none" : "block",
-          height: width < 1024 ? "unset" : "1500px",
-        }}
-      >
-        <SectionPortraitDesktopV1 index={0} />
-      </div>
-      <div
-        id={`anchor_10`}
-        style={{
-          display: width < 1024 ? "none" : "block",
-          height: width < 1024 ? "unset" : "1400px",
-        }}
-      >
-        <SectionPortraitDesktopV1 index={1} />
-      </div>
-
-      {/* <div
-        id={`anchor_9`}
-        style={{ height: "120vh", display: width < 1024 ? "none" : "block" }}
-      >
-        <SectionPortraitDesktopV1 index={0} />
-      </div> */}
-
-      {/* <div
-        id={`anchor_10`}
-        style={{
-          height: height < 1023 ? "150vh" : height > 1079 ? "100vh" : "120vh",
-          display: width < 1024 ? "none" : "block",
-        }}
-      >
-        <SectionPortraitDesktopV1 index={1} />
-      </div> */}
+      {width >= 1024 && (
+        <>
+          <div id="anchor_9">
+            <SectionPortraitDesktopV1 index={0} />
+          </div>
+          <div id="anchor_10">
+            <SectionPortraitDesktopV1 index={1} />
+          </div>
+        </>
+      )}
 
       <SectionPicture
         src="/assets/images/hero-box.webp"
@@ -139,17 +114,11 @@ export default function Home() {
       />
       <SectionPortraits3 />
 
-      <div
-        style={
-          width < 1024
-            ? { height: "unset" }
-            : width > 1200
-              ? { height: "3200px" }
-              : { height: "3150px" }
-        }
-      >
-        <SectionPortraitsDesktopV1 />
-      </div>
+      {width >= 1024 && (
+        <div>
+          <SectionPortraitsDesktopV1 />
+        </div>
+      )}
 
       <SectionPicture
         src="/assets/images/hero-kid.webp"
