@@ -47,7 +47,7 @@ const nextConfig = {
       $media-l: 1200px;
       $media-m: 1024px;
       $media-s: 840px;
-      $media-ss: 580px;
+      $media-ss: 596px;
       $media-xs: 480px;
       `,
   },
