@@ -32,17 +32,15 @@ export default function AnimateSlideIn({
   delay = 0,
   isGroup = false,
 }: AnimateSlideInProps) {
-  const [key, setKey] = useState(Math.random()); // Initialisation d'une clé dynamique pour forcer un re-rendu
+  const [key, setKey] = useState(Math.random());
 
-  // Utilisation de useEffect pour détecter la visibilité de l'élément
   useEffect(() => {
-    // Cette logique permet de réinitialiser la clé chaque fois que l'élément devient visible
-    setKey(Math.random()); // Cela forcerait un nouveau rendu
-  }, [children]); // Ici, on écoute le changement des enfants
+    setKey(Math.random());
+  }, [children]);
 
   return (
     <motion.span
-      key={key}  // La clé dynamique pour forcer un nouveau rendu
+      key={key}
       className={`${className} ${fill ? styles.wrapper : styles.filled}`}
       initial="hidden"
       whileInView="visible"
@@ -52,7 +50,7 @@ export default function AnimateSlideIn({
         duration: 0.65,
         delay,
       }}
-      viewport={{ margin: `100% 0% -10% 0%` }}  // Disable once pour relancer l'animation
+      viewport={{ margin: "0px 0px -10% 0px", once: false }}
     >
       {children}
     </motion.span>
