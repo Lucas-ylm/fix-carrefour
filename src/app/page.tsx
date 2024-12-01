@@ -92,7 +92,7 @@ export default function Home() {
         src="/assets/images/hero-box.webp"
         alt="hero-box"
         size="rectangle"
-        marginTop={"10rem"}
+        marginTop={"0rem"}
       />
       <Ads
         id={
@@ -116,7 +116,7 @@ export default function Home() {
 
       {width >= 1024 && (
         <div>
-          <SectionPortraitsDesktopV1 />
+          <SectionPortraitsDesktopV1 index={0} className="grid" />
         </div>
       )}
 

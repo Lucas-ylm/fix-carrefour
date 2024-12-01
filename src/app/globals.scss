@@ -77,6 +77,12 @@ main {
   display: block;
 }
 
+.image-margin {
+  @media (min-width: $media-m) {
+    margin: 12rem auto 0 !important; 
+  }
+}
+
 body {
   line-height: 1;
 }
@@ -137,6 +143,7 @@ $media-xl: 1560px;
 $media-l: 1200px;
 $media-m: 1024px;
 $media-s: 840px;
+$media-ss: 596px;
 $media-xs: 480px;
 
 @mixin columns($prefix, $max-columns) {

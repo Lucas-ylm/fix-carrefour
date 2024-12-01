@@ -1,13 +1,15 @@
+import { motion } from "framer-motion";
 import AnimateSlideIn from "@/components/animate/AnimateSlideIn";
 import Banner from "@/components/banner/Banner";
 import Block from "@/components/block/Block";
 import Kpi from "@/components/kpi/Kpi";
 import ExportedPicture from "@/components/templateComponent/ExportedPicture";
-import { motion } from "framer-motion";
 import { intro, kpis } from "./data";
 import styles from "./sectionKpiDesktop.module.scss";
 
 export default function SectionKpiDesktop() {
+  const reorderedKpis = [0, 3, 1, 4, 2, 5].map((i) => kpis[i]);
+
   return (
     <section className={styles.wrapper}>
       <motion.div
@@ -44,79 +46,59 @@ export default function SectionKpiDesktop() {
           <Block blocks={intro} />
         </AnimateSlideIn>
 
-        <div className={`col-m-start-5 col-m-3 ${styles.col}`}>
-          <AnimateSlideIn className={kpis[0].className} delay={0}>
-            <Kpi
-              title={kpis[0].title}
-              numbers={kpis[0].number}
-              text={kpis[0].text}
-              color={kpis[0].color}
-              isNumber={kpis[0].isNumber}
-              isImage={kpis[0].isImage}
-              src={kpis[0].image}
-            />
-          </AnimateSlideIn>
-          <AnimateSlideIn className={kpis[3].className} delay={0.6}>
-            <Kpi
-              title={kpis[3].title}
-              numbers={kpis[3].number}
-              text={kpis[3].text}
-              color={kpis[3].color}
-              isNumber={kpis[3].isNumber}
-              isImage={kpis[3].isImage}
-              src={kpis[3].image}
-            />
-          </AnimateSlideIn>
-        </div>
-        <div className={`col-m-start-8 col-m-3 ${styles.col}`}>
-          <AnimateSlideIn className={kpis[1].className} delay={0.2}>
-            <Kpi
-              title={kpis[1].title}
-              numbers={kpis[1].number}
-              text={kpis[1].text}
-              color={kpis[1].color}
-              isNumber={kpis[1].isNumber}
-              isImage={kpis[1].isImage}
-              src={kpis[1].image}
-            />
-          </AnimateSlideIn>
-          <AnimateSlideIn className={kpis[4].className} delay={0.8}>
-            <Kpi
-              title={kpis[4].title}
-              numbers={kpis[4].number}
-              text={kpis[4].text}
-              color={kpis[4].color}
-              isNumber={kpis[4].isNumber}
-              isImage={kpis[4].isImage}
-              src={kpis[4].image}
-            />
-          </AnimateSlideIn>
-        </div>
+        {Array.from({ length: 3 }, (_, groupIndex) => (
+          <motion.div
+            key={`group-${groupIndex}`}
+            className={`${
+              groupIndex === 0
+                ? "col-m-start-5 col-m-3"
+                : groupIndex === 1
+                ? "col-m-start-8 col-m-3"
+                : "col-m-start-11 col-m-3"
+            } ${styles.col}`}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ margin: "100% 0% -10% 0%", once: false }}
+          >
+            {reorderedKpis
+              .slice(groupIndex * 2, groupIndex * 2 + 2)
+              .map((kpi, localIndex) => {
+                const globalIndex = [0, 2, 4, 1, 3, 5].indexOf(
+                  groupIndex * 2 + localIndex
+                );
 
-        <div className={`col-m-start-11 col-m-3 ${styles.col}`}>
-          <AnimateSlideIn className={kpis[2].className} delay={0.4}>
-            <Kpi
-              title={kpis[2].title}
-              numbers={kpis[2].number}
-              text={kpis[2].text}
-              color={kpis[2].color}
-              isNumber={kpis[2].isNumber}
-              isImage={kpis[2].isImage}
-              src={kpis[2].image}
-            />
-          </AnimateSlideIn>
-          <AnimateSlideIn className={kpis[5].className} delay={1}>
-            <Kpi
-              title={kpis[5].title}
-              numbers={kpis[5].number}
-              text={kpis[5].text}
-              color={kpis[5].color}
-              isNumber={kpis[5].isNumber}
-              isImage={kpis[5].isImage}
-              src={kpis[5].image}
-            />
-          </AnimateSlideIn>
-        </div>
+                return (
+                  <motion.div
+                    key={typeof kpi.title === "string" ? kpi.title : `kpi-${globalIndex}`}
+                    initial={{
+                      y: 48,
+                      opacity: 0,
+                    }}
+                    animate={{
+                      y: 0,
+                      opacity: 1,
+                      transition: {
+                        duration: 0.65,
+                        delay: globalIndex * 0.2,
+                      },
+                    }}
+                    viewport={{ margin: "100% 0% -10% 0%", once: false }}
+                    className={kpi.className}
+                  >
+                    <Kpi
+                      title={kpi.title}
+                      numbers={kpi.number}
+                      text={kpi.text}
+                      color={kpi.color}
+                      isNumber={kpi.isNumber}
+                      isImage={kpi.isImage}
+                      src={kpi.image}
+                    />
+                  </motion.div>
+                );
+              })}
+          </motion.div>
+        ))}
       </div>
     </section>
   );

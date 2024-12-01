@@ -1,7 +1,8 @@
 .wrapper {
-  display: none;
+  @media (max-width: $media-m) {
+    display: none;
+  }
   @media (min-width: $media-m) {
-    display: block;
     margin-top: 10rem;
     position: relative;
   }
@@ -11,6 +12,7 @@
     position: sticky;
     background-color: transparent;
     z-index: 1;
+    padding-bottom: 3em;
 
     .container {
       min-height: 8rem;
@@ -22,56 +24,10 @@
       }
       
       .right {
-        background-color: $white;
-        position: relative;
+        padding-top: 1rem;
         height: fit-content;
-
-        .openName {
-          height: fit-content;
-          min-height: 8rem;
-          overflow: hidden;
-          padding-bottom: 2rem;
-          
-          .title {
-            height: fit-content;
-            min-height: 8rem;
-            background-color: $white;
-            padding: 1rem 0;
-          }
-        }
-
-        .absolute {
-          position: relative;
-          padding-top: 2rem;
-          
-          .openPicture {
-            height: fit-content;
-            min-height: 20rem;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            
-            > div {
-              > div {
-                position: relative;
-              }
-            }
-          }
-          
-          .openExtract {
-            height: fit-content;
-            min-height: 11rem;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            
-            > div {
-              > div {
-                min-height: 11rem;
-                position: relative;
-                margin: auto 0;
-              }
-            }
-          }
-        }
+        background-color: $white;
+        padding-bottom: 4rem;
       }
     }
   }
@@ -79,14 +35,10 @@
   .content {
     position: relative;
     height: fit-content;
-    margin-top: 5rem;
-    padding-bottom: 5rem;
-
-    .text1,
-    .text2,
-    .text3 {
+    margin-top: -35.6rem;
+    
+    .text {
       height: fit-content;
-      margin-bottom: 3rem;
     }
   }
 }

@@ -44,6 +44,7 @@ export default function SectionPortraitDesktopV1({ index }: Props) {
               altProfile={data[index].avatar.altProfile}
               color="blue"
               isAnimated={false}
+              className="image-margin"
             />
             <ExtractDesktop
               data={data[index].extract}

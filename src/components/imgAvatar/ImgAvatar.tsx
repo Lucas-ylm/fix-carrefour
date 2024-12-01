@@ -20,9 +20,10 @@ export default function ImgAvatar({
   altFruit,
   color,
   isAnimated,
+  className
 }: Props) {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${className} ${styles.wrapper}`}>
       <div className={styles.mask}>
         <div className={styles.container} data-color={color}>
           <ExportedPicture

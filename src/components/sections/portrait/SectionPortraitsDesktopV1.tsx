@@ -8,11 +8,14 @@ import Name from "@/components/name/Name";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { data } from "./data";
-import styles from "./sectionPortraitDesktopV1.module.scss";
+import styles from "./sectionPortraitsDesktopV1.module.scss";
 
-type Props = { index: number };
+type Props = { 
+  index: number;
+  className?: string;
+};
 
-export default function SectionPortraitDesktopV1({ index }: Props) {
+export default function SectionPortraitDesktopV1({ index, className }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef1 = useRef<HTMLDivElement>(null);
   const contentRef2 = useRef<HTMLDivElement>(null);
@@ -21,9 +24,9 @@ export default function SectionPortraitDesktopV1({ index }: Props) {
   const isInView: boolean = useInView(sectionRef);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const observer1 = useInView(contentRef1, { margin: "-40% 0% -60% 0%" });
-  const observer2 = useInView(contentRef2, { margin: "-40% 0% -60% 0%" });
-  const observer3 = useInView(contentRef3, { margin: "-40% 0% -60% 0%" });
+  const observer1 = useInView(contentRef1, { margin: "-33% 0% -70% 0%" });
+  const observer2 = useInView(contentRef2, { margin: "-33% 0% -70% 0%" });
+  const observer3 = useInView(contentRef3, { margin: "-33% 0% -70% 0%" });
 
   useEffect(() => {
     if (observer1) {
@@ -39,7 +42,7 @@ export default function SectionPortraitDesktopV1({ index }: Props) {
 
   return (
     <section
-      className={styles.wrapper}
+      className={`${styles.wrapper} ${className || ''}`}
       ref={sectionRef}
       style={{ marginTop: index === 0 ? "10rem" : "" }}
       id={`anchor_${index}`}

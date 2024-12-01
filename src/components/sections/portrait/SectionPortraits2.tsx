@@ -17,7 +17,7 @@ export default function SectionPortraits2() {
   const observer1 = useInView(contentRef1, {
     margin: `${0}px ${50}px ${0}px ${0}px`,
   });
-  const observer2 = useInView(contentRef2, { margin: "-60% 0% -40% 0%" });
+  const observer2 = useInView(contentRef2, { margin: "-0% 0% -30% 0%" });
 
   const observers = [observer1, observer2];
 
