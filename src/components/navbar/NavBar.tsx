@@ -1,163 +1,124 @@
-import { useWindowSize } from "@/hook/useWindowSize";
 import Link from "next/link";
-import { useCallback } from "react";
-import AvatarMenu from "../avatar/AvatarMenu";
 import { useAppContext } from "../context/useAppContext";
 import styles from "./navBar.module.scss";
+import ExportedPicture from "../templateComponent/ExportedPicture";
 
 export default function NavBar() {
-  const { width } = useWindowSize();
   const { setIsOpen } = useAppContext();
-  const handleClick = useCallback(
-    (
-      e: React.MouseEvent<HTMLAnchorElement>,
-      target: string,
-      offset: number
-    ) => {
-      e.preventDefault();
-      const element = document.querySelector(target);
-      if (element) {
-        const elementPosition =
-          element.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: elementPosition + offset,
-        });
-      }
-      setIsOpen(false);
-    },
-    [setIsOpen]
-  );
+
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
 
   return (
     <nav className={styles.wrapper}>
       <ul className={styles.lists}>
-        <h3 className={styles.title}>L’Engagement Act For Food</h3>
+        <h3 className="font-roboto text-[20px] uppercase">Les forces de la beauté</h3>
         <li className={styles.list}>
-          <Link
-            href="#anchor_5"
-            onClick={(e) => handleClick(e, "#anchor_5", -100)}
-          >
-            <AvatarMenu
-              srcProfile="/assets/images/act-for-food.png"
-              altProfile="act-for-food"
-              name=""
-              description="Les engagements de Carrefour en faveur du « mieux manger »"
-              type="menu"
-              srcFruit={""}
-              altFruit={""}
-            />
-          </Link>
-        </li>
-        <h3 className={styles.title}>Carrefour nous en parle</h3>
-        <li className={styles.list}>
-          <Link
-            href="#anchor_0"
-            onClick={(e) =>
-              handleClick(
-                e,
-                `#anchor_${width < 1024 ? 0 : 9}`,
-                width < 1024 ? -350 : -100
-              )
-            }
-          >
-            <AvatarMenu
-              srcProfile="/assets/images/profile/caroline-dassie.webp"
-              altProfile="caroline-dassie"
-              name="Caroline Dassié"
-              description="Directrice Exécutive Global Marketing, Clients et Marques Propres"
-              type="menu"
-              srcFruit={""}
-              altFruit={""}
-            />
+          <Link href="/la-beaute-nous-rappelle-a-nous-memes" onClick={handleLinkClick}>
+            <div className="flex gap-[12px] items-center">
+              <ExportedPicture
+                className="w-[32px] h-auto max-w-[unset]"
+                alt="Luxe"
+                src="/assets/images/menu/1.png"
+                priority={true}
+              />
+              <p className="font-bitter italic font-light text-[13px]">
+                « La beauté est multiple, mais l’émotion du beau est universelle.»
+              </p>
+            </div>
           </Link>
         </li>
         <li className={styles.list}>
-          <Link
-            href="#anchor_1"
-            onClick={(e) =>
-              handleClick(
-                e,
-                `#anchor_${width < 1024 ? 1 : 10}`,
-                width < 1024 ? -350 : -100
-              )
-            }
-          >
-            <AvatarMenu
-              srcProfile="/assets/images/profile/benoit-soury.webp"
-              altProfile="benoit-soury"
-              name="Benoît Soury"
-              description="Directeur Proximité France et Marché Bio"
-              type="menu"
-              srcFruit={""}
-              altFruit={""}
-            />
-          </Link>
-        </li>
-        <h3 className={styles.title}>La Filière Qualité Carrefour</h3>
-        <li className={styles.list}>
-          <Link
-            href="#anchor_2"
-            onClick={(e) =>
-              handleClick(
-                e,
-                `#anchor_${width < 1024 ? 2 : 6}`,
-                width < 1024 ? -350 : -225
-              )
-            }
-          >
-            <AvatarMenu
-              srcProfile="/assets/images/profile/francois-vincent.webp"
-              altProfile="francois-vincent"
-              name="Francois Vincent"
-              description="Directeur Produits frais traditionnels France"
-              type="menu"
-              srcFruit={""}
-              altFruit={""}
-            />
+          <Link href="/emmaus-solidarite-et-loreal" onClick={handleLinkClick}>
+            <div className="flex gap-[12px] items-center">
+              <ExportedPicture
+                className="w-[32px] h-auto max-w-[unset]"
+                alt="Luxe"
+                src="/assets/images/menu/2.png"
+                priority={true}
+              />
+              <p className="font-bitter italic font-light text-[13px]">
+                EMMAÜS Solidarité et L’Oréal : quand la beauté nous relie
+              </p>
+            </div>
           </Link>
         </li>
         <li className={styles.list}>
-          <Link
-            href="#anchor_3"
-            onClick={(e) =>
-              handleClick(
-                e,
-                `#anchor_${width < 1024 ? 3 : 7}`,
-                width < 1024 ? -350 : -225
-              )
-            }
-          >
-            <AvatarMenu
-              srcProfile="/assets/images/profile/vincent-carriere.webp"
-              altProfile="vincent-carriere"
-              name="VINCENT CARRÈRE-LOUSTAUNAU"
-              description="Producteur et gérant des Vergers de Guillamou"
-              type="menu"
-              srcFruit="/assets/images/profile/pomme.webp"
-              altFruit="pomme"
-            />
+          <Link href="/jai-compris-que-javais-droit-a-ma-beaute" onClick={handleLinkClick}>
+            <div className="flex gap-[12px] items-center">
+              <ExportedPicture
+                className="w-[32px] h-auto max-w-[unset]"
+                alt="Luxe"
+                src="/assets/images/menu/3.png"
+                priority={true}
+              />
+              <p className="font-bitter italic font-light text-[13px]">
+                « J’ai compris que j’avais droit à ma beauté »
+              </p>
+            </div>
+          </Link>
+        </li>
+        <h3 className="font-roboto text-[20px] uppercase">La beauté, de la nature au flacon</h3>
+        <li className={styles.list}>
+          <Link href="/les-sciences-vertes-ou-quand-la-beaute-s-inspire-de-la-nature" onClick={handleLinkClick}>
+            <div className="flex gap-[12px] items-center">
+              <ExportedPicture
+                className="w-[32px] h-auto max-w-[unset]"
+                alt="Luxe"
+                src="/assets/images/menu/4.png"
+                priority={true}
+              />
+              <p className="font-bitter italic font-light text-[13px]">
+                Investir dans les Sciences Vertes pour la transformation durable
+              </p>
+            </div>
           </Link>
         </li>
         <li className={styles.list}>
-          <Link
-            href="#anchor_4"
-            onClick={(e) =>
-              handleClick(
-                e,
-                `#anchor_${width < 1024 ? 4 : 8}`,
-                width < 1024 ? -375 : -225
-              )
-            }
-          >
-            <AvatarMenu
-              srcProfile="/assets/images/profile/samuel-allix.webp"
-              altProfile="samuel-allix"
-              name="Samuel Allix"
-              description="Producteur et gérant de la société Allix"
-              type="menu"
-              srcFruit="/assets/images/profile/patate.webp"
-              altFruit="patate"
-            />
+          <Link href="/emballages-une-question-de-ressources" onClick={handleLinkClick}>
+            <div className="flex gap-[12px] items-center">
+              <ExportedPicture
+                className="w-[32px] h-auto max-w-[unset]"
+                alt="Luxe"
+                src="/assets/images/menu/5.png"
+                priority={true}
+              />
+              <p className="font-bitter italic font-light text-[13px]">
+                Plus circulaire, innovant et allégé : l’emballage fait sa mue
+              </p>
+            </div>
+          </Link>
+        </li>
+        <h3 className="font-roboto text-[20px] uppercase">La beauté de demain</h3>
+        <li className={styles.list}>
+          <Link href="/innovante-inclusive-et-plus-responsable" onClick={handleLinkClick}>
+            <div className="flex gap-[12px] items-center">
+              <ExportedPicture
+                className="w-[32px] h-auto max-w-[unset]"
+                alt="Luxe"
+                src="/assets/images/menu/6.png"
+                priority={true}
+              />
+              <p className="font-bitter italic font-light text-[13px]">
+                «Innovante, inclusive et plus responsable : nous sommes fiers de notre usine.»
+              </p>
+            </div>
+          </Link>
+        </li>
+        <li className={styles.list}>
+          <Link href="/beaute-augmentee-et-quete-humanite" onClick={handleLinkClick}>
+            <div className="flex gap-[12px] items-center">
+              <ExportedPicture
+                className="w-[32px] h-auto max-w-[unset]"
+                alt="Luxe"
+                src="/assets/images/menu/7.png"
+                priority={true}
+              />
+              <p className="font-bitter italic font-light text-[13px]">
+                Beauté augmentée et quête d’humanité
+              </p>
+            </div>
           </Link>
         </li>
       </ul>

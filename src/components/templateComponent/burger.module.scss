@@ -31,7 +31,7 @@
     height: 0.3rem;
 
     border-radius: 0.2rem;
-    background-color: $black;
+    background-color: black;
     transition: transform 0.3s;
   }
 
@@ -50,7 +50,7 @@
 
   span::before,
   span::after {
-    background-color: $black;
+    background-color: black;
   }
 }
 

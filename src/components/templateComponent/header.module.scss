@@ -1,19 +1,21 @@
+@use "/src/styles/colors";
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
-  width: 100vw;
+  z-index: 100;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: $white;
+  background-color: #fff;
   .first {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 5.045rem;
-    border-top: 3px solid $blue-header;
-    border-bottom: 1px solid $grey-header;
+    height: 50.45px;
+    border-top: 3px solid colors.$blue;
+    border-bottom: 1px solid colors.$grey;
     padding-inline: 6.25vw;
 
     .home {
@@ -22,28 +24,21 @@
       gap: 0.4rem;
 
       .svgHome {
-        min-width: 1.5rem;
-        height: 1.4rem;
-        width: 1.4rem;
+        height: 1.9rem;
+        width: 1.9rem;
       }
       .svgLemonde {
         height: 2rem;
         width: 9.33rem;
       }
     }
-
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 1.6rem;
-    }
   }
   .second {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4.955rem;
-    border-bottom: 1px solid $grey-header;
+    height: 49.55px;
+    border-bottom: 1px solid colors.$grey;
     padding-inline: 6.25vw;
     .logoBrand {
       display: flex;
@@ -51,7 +46,7 @@
       gap: 0.3rem;
 
       .title {
-        font-family: var(--font-arimo);
+        font-family: var(--font-roboto);
         font-size: 1.3rem;
         font-style: normal;
         font-weight: 400;

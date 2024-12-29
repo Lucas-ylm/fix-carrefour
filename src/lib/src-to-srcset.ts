@@ -1,15 +1,7 @@
-export function srcToSrcset(
-  src: string,
-  widths: number[],
-  fileExtension?: string,
-): string {
+export function srcToSrcset(src: string, widths: number[] = [768, 1024, 1440], fileExtention?: string): string {
   const splited = src.split(".");
   const fileName = splited.pop();
   const pathName = splited.join(".");
 
-  return widths
-    .map(
-      (width) => `${pathName}-${width}w.${fileExtension ?? fileName} ${width}w`,
-    )
-    .join(", ");
+  return widths.map((width) => `${pathName}-${width}w.${fileExtention ?? fileName} ${width}w`).join(", ");
 }

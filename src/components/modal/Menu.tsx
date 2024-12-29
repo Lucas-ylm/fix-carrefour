@@ -1,8 +1,8 @@
 import { animate, motion, useMotionValue } from "framer-motion";
 import { ReactNode } from "react";
 import useMeasure from "react-use-measure";
-import { useAppContext } from "../context/useAppContext";
 import styles from "./menu.module.scss";
+import { useAppContext } from "../context/useAppContext";
 
 type Props = {
   children?: ReactNode;
@@ -39,7 +39,10 @@ export default function Menu({ children }: Props) {
           <motion.div
             id="drawer"
             ref={drawerRef}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
             initial={{ x: "100%" }}
             animate={{ x: "0%" }}
             transition={{

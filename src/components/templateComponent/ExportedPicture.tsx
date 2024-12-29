@@ -1,6 +1,7 @@
 import { env } from "@/lib/env";
 import { srcToSrcset } from "@/lib/src-to-srcset";
-import { CSSProperties } from "react";
+import styles from "./exportedPicture.module.scss";
+import SlideIn from "../animation/SlideIn";
 
 type ExportedPictureProps = {
   src: string;
@@ -14,7 +15,8 @@ type ExportedPictureProps = {
   width?: number;
   height?: number;
   className?: string;
-  style?: CSSProperties;
+  priority?: boolean;
+  style?: React.CSSProperties;
 };
 
 export default function ExportedPicture({
@@ -25,18 +27,20 @@ export default function ExportedPicture({
   loading = "lazy",
   sources,
   className,
+  priority,
   style,
-}: ExportedPictureProps) {
+}: Readonly<ExportedPictureProps>) {
   if (env.DEV) {
     return (
-      <div className={className} style={style}>
+      <div className={`${className} ${styles.exportedImage}`}>
         <img
           src={env.BASE_PATH + src}
           alt={alt}
           width={width}
           height={height}
           className={className}
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
+          style={style}
         />
       </div>
     );
@@ -47,22 +51,11 @@ export default function ExportedPicture({
       {sources?.map((source) => (
         <source
           key={source.src}
-          srcSet={srcToSrcset(
-            env.BASE_PATH + source.src,
-            source.widths,
-            "webp"
-          )}
+          srcSet={srcToSrcset(env.BASE_PATH + source.src, source.widths, "webp")}
           media={source.media}
         />
       ))}
-      <img
-        src={env.BASE_PATH + src}
-        alt={alt}
-        width={width}
-        height={height}
-        className={className}
-        loading={loading}
-      />
+      <img src={env.BASE_PATH + src} alt={alt} width={width} height={height} className={className} loading={loading} />
     </picture>
   );
 }

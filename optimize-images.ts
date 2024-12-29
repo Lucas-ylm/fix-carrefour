@@ -75,7 +75,7 @@ const config: Config = [
 function configToResizeOptions(
   cfg: Record<string, ConfigSizes> | ConfigSizes,
   suffix?: string,
-  ratio?: number,
+  ratio?: number
 ): ConfigResize[] {
   if (Array.isArray(cfg)) {
     return [
@@ -87,11 +87,7 @@ function configToResizeOptions(
     ];
   }
 
-  if (
-    "ratio" in cfg &&
-    typeof cfg.ratio === "number" &&
-    Array.isArray(cfg.widths)
-  ) {
+  if ("ratio" in cfg && typeof cfg.ratio === "number" && Array.isArray(cfg.widths)) {
     return [
       {
         suffix,
@@ -101,12 +97,8 @@ function configToResizeOptions(
     ];
   }
 
-  return Array.from(Object.entries(cfg)).flatMap(
-    ([cfgsuffix, cfgSizes]: [string, ConfigSizes]) =>
-      configToResizeOptions(
-        cfgSizes,
-        `${suffix ? suffix + "-" : ""}${cfgsuffix}`,
-      ),
+  return Array.from(Object.entries(cfg)).flatMap(([cfgsuffix, cfgSizes]: [string, ConfigSizes]) =>
+    configToResizeOptions(cfgSizes, `${suffix ? suffix + "-" : ""}${cfgsuffix}`)
   );
 }
 
@@ -128,11 +120,9 @@ async function resize(path: string, options: ConfigResize[]) {
             fit: "cover",
           })
           .webp()
-          .toFile(
-            `${pathName}-${option.suffix ? option.suffix + "-" : ""}${width}w.webp`,
-          );
-      }),
-    ),
+          .toFile(`${pathName}-${option.suffix ? option.suffix + "-" : ""}${width}w.webp`);
+      })
+    )
   );
 }
 

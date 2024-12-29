@@ -1,40 +1,39 @@
-import { ContextProvider } from "@/components/context/Context";
-import LazySvg from "@/components/svgComponent/LazySvg";
-import ATInternet from "@/components/templateComponent/ATInternet";
 import Header from "@/components/templateComponent/Header";
 import { env } from "@/lib/env";
-import { Metadata } from "next";
-import { Arimo } from "next/font/google";
-import localFont from "next/font/local";
+import "@/styles/globals.scss";
+import type { Metadata } from "next";
+import { Bitter, Roboto } from "next/font/google";
 import Script from "next/script";
-import "./globals.scss";
+// import Cookies from "@/components/templateComponent/Cookies";
+import LazySvg from "@/components/svgComponent/LazySvg";
+import ATInternet from "@/components/templateComponent/ATInternet";
+import styles from "./layout.module.scss";
+import { useEffect } from "react";
+import { ContextProvider } from "@/components/context/Context";
+// import Cookies from "@/components/templateComponent/Cookies";
 
-const arimo = Arimo({
-  weight: "400",
+const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-arimo",
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-roboto",
 });
 
-const redditItalic = localFont({
-  src: "./fonts/RedditSans-Italic-VariableFont_wght.ttf",
-  variable: "--font-reddit-italic",
-  weight: "300 800",
-});
-const redditNormal = localFont({
-  src: "./fonts/RedditSans-VariableFont_wght.ttf",
-  variable: "--font-reddit-normal",
-  weight: "300 800",
+const bitter = Bitter({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["200", "300", "400", "700", "800", "900"],
+  style: ["normal", "italic"],
+  variable: "--font-bitter",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.BASE_URL),
   title: {
     template: "%s | Le Monde",
-    default: "Carrefour | Le Monde",
+    default: "L'Oréal, la beauté créatrice | Le Monde",
   },
-  description:
-    "« Être attentif au contenu de son assiette a un impact direct sur la santé, des femmes et des hommes, mais aussi des animaux et sur toutes les composantes de l’environnement, l’eau, l’air et les sols.",
+  description: "« Créer la beauté qui fait avancer le monde », telle est la raison d’être de L’Oréal.",
   icons: [
     {
       rel: "icon",
@@ -44,13 +43,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.lemonde.fr",
-    title: "Manger mieux : tous à table pour le changement !",
-    description:
-      "« Être attentif au contenu de son assiette a un impact direct sur la santé, des femmes et des hommes, mais aussi des animaux et sur toutes les composantes de l’environnement, l’eau, l’air et les sols.",
-    siteName: "Carrefour",
+    title: "L'Oréal, la beauté créatrice | Le Monde",
+    description: "« Créer la beauté qui fait avancer le monde », telle est la raison d’être de L’Oréal.",
+    siteName: "Boilerplate MPublicité",
     images: [
       {
-        url: `${env.BASE_PATH}/og/og-opengraph.webp`,
+        url: `${env.BASE_PATH}/og/loreal-opengraph.jpg`,
       },
     ],
   },
@@ -58,10 +56,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@lemondefr",
     creator: "@matt_ojs",
-    images: `${env.BASE_PATH}/og/og-twitter.webp`,
-    title: "Manger mieux : tous à table pour le changement !",
-    description:
-      "« Être attentif au contenu de son assiette a un impact direct sur la santé, des femmes et des hommes, mais aussi des animaux et sur toutes les composantes de l’environnement, l’eau, l’air et les sols.",
+    images: `${env.BASE_PATH}/og/loreal-twitter.jpg`,
+    title: "L'Oréal, la beauté créatrice | Le Monde",
+    description: "« Créer la beauté qui fait avancer le monde », telle est la raison d’être de L’Oréal.",
   },
 };
 
@@ -72,59 +69,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body
-        className={`${arimo.variable} ${redditItalic.variable} ${redditNormal.variable}`}
-      >
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <body className={`${roboto.variable} ${bitter.variable}`}>
         <ContextProvider>
           <Header
             logoBrand={
-              <a
-                href="https://www.carrefour.fr"
-                target="_blank"
-                rel="noreferrer"
-                style={{ display: "flex", gap: "1rem" }}
-              >
-                <LazySvg name="carrefour" width={24} height={24} />
+              <a href="https://www.loreal.com/fr/groupe/" target="_blank" rel="noreferrer">
+                <LazySvg name="loreal-groupe" width={90} height={58} />
               </a>
             }
             isMenu={true}
           />
-          <Script
-            id="google-ads"
-            strategy="afterInteractive"
-            src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
-          />
-
-          <Script id="google-ads-init" strategy="afterInteractive">
-            {`
-          window.googletag = window.googletag || {cmd: []};
-          googletag.cmd.push(function() {
-            if (window.innerWidth > 1024) {
-              // Configuration pour écran large
-              googletag.defineSlot('/128139881/LM_lemonde/ope_spe/ope_spe/rg/banniere_haut', [[970, 250]], 'div-gpt-ad-1729257135244-0')
-              .addService(googletag.pubads())
-              .setTargeting("rubriques", "tous-a-table-pour-le-changement")
-              .setTargeting("rub", "tous-a-table-pour-le-changement");
-              } else {
-                // Configuration pour écran étroit
-              googletag.defineSlot('/128139881/LM_lemonde/ope_spe/ope_spe/rg/banniere_basse', [[320, 50]], 'div-gpt-ad-1729257024685-0')
-              .addService(googletag.pubads())
-              .setTargeting("rubriques", "tous-a-table-pour-le-changement")
-              .setTargeting("rub", "tous-a-table-pour-le-changement");
-              }
-              
-              googletag.pubads().enableSingleRequest();
-              googletag.enableServices();
-              });
-              `}
-          </Script>
-          {children}
+          <main className={styles.main}>{children}</main>
           <Script src="https://cmp.lemonde.fr/js/tcfv2-stub.min.js"></Script>
           <Script async src="https://cmp.lemonde.fr/js/lemonde.min.js"></Script>
-          <ATInternet
-            chapter1="tous-a-table-pour-le-changement"
-            chapter2="tous-a-table-pour-le-changement.lemonde.fr"
-          />
+          <ATInternet chapter1="loreal" chapter2="loreal.lemonde.fr" />
         </ContextProvider>
       </body>
     </html>

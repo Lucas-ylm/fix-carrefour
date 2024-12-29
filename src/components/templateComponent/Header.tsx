@@ -1,12 +1,12 @@
 import Link from "next/link";
-import LazySvg from "../svgComponent/LazySvg";
 import Burger from "./Burger";
 import Info from "./Info";
 import styles from "./header.module.scss";
+import LazySvg from "../svgComponent/LazySvg";
 
 type Props = { logoBrand: React.ReactNode; isMenu: boolean };
 
-export default function Header({ isMenu, logoBrand }: Props) {
+export default function Header({ logoBrand, isMenu }: Props) {
   return (
     <header className={styles.header}>
       <div className={styles.first}>
