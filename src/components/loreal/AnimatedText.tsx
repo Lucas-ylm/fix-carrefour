@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import SlideIn from "../animation/SlideIn";
-import TextSplitter from "@/lib/splitTypes";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 type AnimatedTextProps = {
   className?: string;
@@ -10,67 +8,59 @@ type AnimatedTextProps = {
 };
 
 export const AnimatedText = ({ className, children }: AnimatedTextProps) => {
-  const [isMounted, setIsMounted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  if (!children) return null;
 
-  useEffect(() => {
-    const splitter = new TextSplitter();
+  // Convert children to string, handling both direct strings and React nodes
+  const text = React.isValidElement(children) 
+    ? children.props.children 
+    : String(children);
 
-    const initSplitter = () => {
-      // Initialize splitter with requestAnimationFrame to prevent blocking render
-      requestAnimationFrame(() => {
-        splitter.init();
-      });
-    };
-
-    if (document.readyState === "complete") {
-      initSplitter();
-    } else {
-      window.addEventListener("load", initSplitter);
-    }
-
-    const observeElement = () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Trigger refresh only when entering the viewport
-            setTimeout(() => {
-              splitter.refresh();
-            }, 0);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      const element = document.querySelector(".reveal-type");
-      if (element) {
-        observer.observe(element);
-      }
-
-      return () => {
-        if (element) observer.unobserve(element);
-      };
-    };
-
-    observeElement();
-
-    return () => {
-      splitter.destroy();
-      window.removeEventListener("load", initSplitter);
-    };
-  }, [isMounted]);
-
-  if (!children || !isMounted) return null;
+  // Split text into words
+  const words = text.split(" ");
 
   return (
-    <div className={className}>
-      <SlideIn>
-        <p className="reveal-type font-bitter text-[20px] font-bold italic leading-[32px] text-black lg:text-[38px] lg:leading-[52px]">
-          {children}
-        </p>
-      </SlideIn>
+    <div 
+      ref={ref}
+      className={`font-bitter text-[20px] font-bold italic leading-[32px] text-black lg:text-[38px] lg:leading-[52px] ${className || ''}`}
+    >
+      {words.map((word, index) => {
+        // Calculate when each word should start appearing based on its position
+        const start = index / words.length;
+        const end = (index + 1) / words.length;
+
+        // Create opacity and y transforms for each word based on scroll progress
+        const opacity = useTransform(
+          scrollYProgress,
+          [start, end],
+          [0, 1]
+        );
+        
+        const y = useTransform(
+          scrollYProgress,
+          [start, end],
+          [20, 0]
+        );
+
+        return (
+          <motion.span
+            key={index}
+            style={{ 
+              opacity,
+              y,
+              display: "inline-block",
+              marginRight: "0.25em",
+            }}
+          >
+            {word}
+          </motion.span>
+        );
+      })}
     </div>
   );
 };
