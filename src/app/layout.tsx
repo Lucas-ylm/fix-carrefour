@@ -8,9 +8,7 @@ import Script from "next/script";
 import LazySvg from "@/components/svgComponent/LazySvg";
 import ATInternet from "@/components/templateComponent/ATInternet";
 import styles from "./layout.module.scss";
-import { useEffect } from "react";
 import { ContextProvider } from "@/components/context/Context";
-// import Cookies from "@/components/templateComponent/Cookies";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -69,12 +67,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       <body className={`${roboto.variable} ${bitter.variable}`}>
         <ContextProvider>
           <Header
             logoBrand={
-              <a href="https://www.loreal.com/fr/groupe/" target="_blank" rel="noreferrer">
+              <a href="https://www.loreal.com/fr/" target="_blank" rel="noreferrer">
                 <LazySvg name="loreal-groupe" width={90} height={58} />
               </a>
             }
@@ -83,7 +80,7 @@ export default function RootLayout({
           <main className={styles.main}>{children}</main>
           <Script src="https://cmp.lemonde.fr/js/tcfv2-stub.min.js"></Script>
           <Script async src="https://cmp.lemonde.fr/js/lemonde.min.js"></Script>
-          <ATInternet chapter1="loreal" chapter2="loreal.lemonde.fr" />
+          <ATInternet chapter1="la-beaute-creatrice" chapter2="la-beaute-creatrice.lemonde.fr" />
         </ContextProvider>
       </body>
     </html>

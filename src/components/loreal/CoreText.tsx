@@ -14,7 +14,7 @@ export const CoreText = ({ className, children, elementClassName = "" }: CoreTex
   return (
     <div className={className}>
       <SlideIn>
-        <p className={cn(`font-bitter font-light text-[14px] leading-[24px] lg:text-[16px] lg:leading-[30px]`, elementClassName)}>
+        <p className={cn(`font-bitter font-light leading-[24px] text-[16px] lg:leading-[30px]`, elementClassName)}>
           {children}
         </p>
       </SlideIn>

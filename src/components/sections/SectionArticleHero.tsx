@@ -52,7 +52,7 @@ export default function SectionArticleHero({
         <h1 className="font-bitter text-[25px] lg:text-[60px] font-light leading-[130%] lg:tracking-[-1px]">
           {mainTitle}
         </h1>
-        <p className="font-roboto text-[20px] font-bold hidden lg:inline lg:tracking-[-1px]">
+        <p className="font-roboto text-[20px] font-bold hidden lg:inline lg:tracking-[0.1px]">
           {mainSubTitle}
         </p>
       </div>

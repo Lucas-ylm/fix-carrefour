@@ -16,7 +16,6 @@ html {
 html,
 body {
   -ms-overflow-style: none !important;
-  overscroll-behavior-y: none;
   scrollbar-width: none !important;
 }
 
@@ -146,19 +145,18 @@ body::-webkit-scrollbar {
   }
 }
 
+.reverse-text {
+  isolation: isolate;
+  filter: invert(1);
+  mix-blend-mode: difference;
+}
+
 .linear-opacity-white {
   background-image: linear-gradient(to top, rgba(255,0,0,0) 50%, rgb(208, 204, 196) 80%);
 }
 
 .linear-opacity-black {
   background-image: linear-gradient(to top, rgba(255,0,0,0) 50%, rgb(31, 30, 30) 98%);
-}
-
-.reveal-type {
-  position: relative;
-  top: 0; /* Ensure it's starting from the top */
-  left: 0;
-  display: inline-block;
 }
 
 .mark-container {

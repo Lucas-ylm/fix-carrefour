@@ -1,7 +1,6 @@
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-declare global {
-  interface Window {
-    ScrollTrigger: typeof ScrollTrigger;
-  }
+declare module 'color-thief-browser' {
+    export default class ColorThief {
+      getColor(img: HTMLImageElement): [number, number, number];
+      getPalette(img: HTMLImageElement, colorCount?: number): [number, number, number][];
+    }
 }

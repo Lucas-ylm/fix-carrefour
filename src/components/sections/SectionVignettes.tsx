@@ -47,7 +47,7 @@ const vignetteData: VignetteData[] = [
     title: "La beauté, de la nature au flacon",
     waitingTitle: (
       <span>
-        Plus circulaire, innovant et allégé : <span className="font-bold italic">l’emballage </span>
+        Plus circulaire, innovant et allégé&nbsp;: <span className="font-bold italic">l’emballage </span>
         fait sa mue
       </span>
     ),
@@ -64,7 +64,7 @@ const vignetteData: VignetteData[] = [
     title: "Les forces de la beauté",
     waitingTitle: (
       <span>
-        EMMAÜS Solidarité et L'Oréal : quand la beauté <span className="font-bold italic">nous relie</span>
+        EMMAÜS Solidarité et L'Oréal&nbsp;: quand la beauté <span className="font-bold italic">nous relie</span>
       </span>
     ),
     waitingText: undefined,
@@ -80,7 +80,7 @@ const vignetteData: VignetteData[] = [
     title: "Les forces de la beauté",
     waitingTitle: (
       <span>
-        « J’ai compris que j’avais droit à <span className="font-bold italic">ma&nbsp;beauté</span>.»
+        «&nbsp;J’ai compris que j’avais droit à <span className="font-bold italic">ma&nbsp;beauté</span>.&nbsp;»
       </span>
     ),
     waitingText: undefined,
@@ -96,7 +96,7 @@ const vignetteData: VignetteData[] = [
     title: "Les forces de la beauté",
     waitingTitle: (
       <span>
-        « La beauté est multiple, mais l’émotion du beau est <span className="font-bold italic">universelle</span>.»
+        «&nbsp;La beauté est multiple, mais l’émotion du beau est <span className="font-bold italic">universelle</span>.&nbsp;»
       </span>
     ),
     waitingText: undefined,
@@ -109,10 +109,10 @@ const vignetteData: VignetteData[] = [
     },
   },
   {
-    title: "La beauté de la nature au flacon",
+    title: "La beauté de demain",
     waitingTitle: (
-      <span>
-        <span className="font-bold italic">Beauté augmentée</span> et quête d'humanité
+      <span className="text-balance">
+        <span className="font-bold italic">Beauté augmentée</span> et quête&nbsp;d'humanité
       </span>
     ),
     waitingText: undefined,
@@ -125,11 +125,11 @@ const vignetteData: VignetteData[] = [
     },
   },
   {
-    title: "Les forces de la beauté",
+    title: "La beauté de demain",
     waitingTitle: (
       <span>
-        « Innovante, inclusive et plus responsable&nbsp;:
-        <span className="font-bold italic"> nous sommes fiers</span> de notre usine.»
+        «&nbsp;Innovante, inclusive et plus responsable&nbsp;:
+        <span className="font-bold italic"> nous sommes fiers</span> de notre usine.&nbsp;»
       </span>
     ),
     waitingText: undefined,

@@ -1,7 +1,6 @@
 import { env } from "@/lib/env";
 import { srcToSrcset } from "@/lib/src-to-srcset";
 import styles from "./exportedPicture.module.scss";
-import SlideIn from "../animation/SlideIn";
 
 type ExportedPictureProps = {
   src: string;
@@ -17,7 +16,9 @@ type ExportedPictureProps = {
   className?: string;
   priority?: boolean;
   style?: React.CSSProperties;
+  credit?: string;
 };
+
 
 export default function ExportedPicture({
   src,
@@ -29,10 +30,11 @@ export default function ExportedPicture({
   className,
   priority,
   style,
+  credit,
 }: Readonly<ExportedPictureProps>) {
   if (env.DEV) {
     return (
-      <div className={`${className} ${styles.exportedImage}`}>
+      <div className={`relative ${className} ${styles.exportedImage}`}>
         <img
           src={env.BASE_PATH + src}
           alt={alt}
@@ -42,20 +44,36 @@ export default function ExportedPicture({
           loading={priority ? "eager" : "lazy"}
           style={style}
         />
+        {credit && (
+          <div className="absolute bottom-2 left-2">
+            <p className="text-white font-light font-roboto text-[12px] px-2 py-1 reverse-text">
+              {credit}
+            </p>
+          </div>
+        )}
       </div>
     );
   }
 
   return (
-    <picture className={className}>
-      {sources?.map((source) => (
-        <source
-          key={source.src}
-          srcSet={srcToSrcset(env.BASE_PATH + source.src, source.widths, "webp")}
-          media={source.media}
-        />
-      ))}
-      <img src={env.BASE_PATH + src} alt={alt} width={width} height={height} className={className} loading={loading} />
-    </picture>
+    <div className={`relative ${className} ${styles.exportedImage}`}>
+      <img
+        src={env.BASE_PATH + src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+        loading={priority ? "eager" : "lazy"}
+        style={style}
+      />
+      {credit && (
+        <div className="absolute bottom-2 left-2">
+          <p className="text-white font-light font-roboto text-[12px] px-2 py-1 reverse-text">
+            {credit}
+          </p>
+        </div>
+      )}
+    </div>
   );
 }
+

@@ -14,7 +14,7 @@ export const CoreTextITW = ({ className, children, elementClassName = "" }: Core
   return (
     <div className={className}>
       <SlideIn>
-        <p className={cn(`font-roboto text-[14px] lg:text-[16px]`, elementClassName)}>
+        <p className={cn(`font-roboto text-[16px]`, elementClassName)}>
           {children}
         </p>
       </SlideIn>

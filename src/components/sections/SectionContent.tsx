@@ -15,7 +15,7 @@ const SectionContent = forwardRef<HTMLDivElement, Props>((props, ref) => {
       <div className="absolute left-0 right-0 top-0 h-full">
         <div className="gradient-white absolute left-0 top-0 h-full w-full"></div>
       </div>
-      <SectionParallax ref={ref} />
+      <SectionParallax ref={ref} scrollYProgress={scrollYProgress} />
     </motion.section>
   );
 });

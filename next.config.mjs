@@ -10,7 +10,7 @@ const baseConfig =
     : {
         env: {
           BASE_PATH: "",
-          BASE_URL: "https://fait-pour-durer.lemonde.fr",
+          BASE_URL: "https://la-beaute-creatrice.lemonde.fr",
         },
       };
 

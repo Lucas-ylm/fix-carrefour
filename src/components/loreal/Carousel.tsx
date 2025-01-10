@@ -5,7 +5,7 @@ import LazySvg from "../svgComponent/LazySvg";
 import ExportedPicture from "../templateComponent/ExportedPicture";
 
 type CarouselProps = {
-  images: { src: string; alt: string }[];
+  images: { src: string; alt: string; credit?: string }[];
 };
 
 export default function Carousel({ images }: CarouselProps) {
@@ -38,6 +38,7 @@ export default function Carousel({ images }: CarouselProps) {
   };
   const { width } = useWindowSize();
   const translation = width < 1024 ? 75 : 64;
+
   return (
     <div className="relative flex flex-col items-center">
       <div className="z-[-1] w-screen overflow-hidden">
@@ -47,18 +48,24 @@ export default function Carousel({ images }: CarouselProps) {
           style={{
             transform: `translateX(-${currentIndex * translation}vw)`,
             transition: isTransitioning ? "transform 0.3s ease" : "none",
-          }}>
+          }}
+        >
           {duplicatedCards.map((image, index) => (
-            <div
-              className="h-[32vh] w-[75vw] translate-x-[6vw] lg:h-[75vh] lg:w-[64vw] lg:translate-x-[12vw]"
-              key={index}>
-              <ExportedPicture
-                alt={image?.alt ?? ""}
-                src={image?.src ?? ""}
-                className="h-full w-full object-cover"
-                priority={false}
-              />
-            </div>
+              <div
+                className="relative aspect-[3/2] w-[75vw] translate-x-[6vw] lg:w-[64vw] lg:translate-x-[12vw]"
+                key={index}
+              >
+                <ExportedPicture
+                  alt={image?.alt ?? ""}
+                  src={image?.src ?? ""}
+                  className="h-full w-full object-cover"
+                  priority={false}
+                />
+                <div className="absolute bottom-2 left-2 px-2 py-1">
+                  <p className="text-white font-normal font-roboto text-[12px]">{image?.credit}</p>
+                </div>
+              </div>
+
           ))}
         </div>
       </div>

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type TextRevealProps = {
   children: string;
@@ -8,17 +7,39 @@ type TextRevealProps = {
 };
 
 export const TextReveal = ({ children, className }: TextRevealProps) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-20% 0px" });
+  const ref = useRef<HTMLDivElement>(null);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
 
-  // Split text into words
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.length > 0 && entries[0]?.isIntersecting) {
+          setShouldAnimate(true);
+        } else {
+          setShouldAnimate(false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, []);
+
   const words = children.split(" ");
+
+  const staggerDuration = Math.max(0.05, 0.5 / (words.length ** 0.75));
 
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.04, delayChildren: 0 * i },
+      transition: { staggerChildren: staggerDuration, delayChildren: 0 * i },
     }),
   };
 
@@ -42,10 +63,11 @@ export const TextReveal = ({ children, className }: TextRevealProps) => {
     <motion.div
       ref={ref}
       style={{
+        willChange: "transform, opacity",
         overflow: "hidden",
       }}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      animate={shouldAnimate ? "visible" : "hidden"}
       variants={container}
       className={className}
     >
@@ -53,7 +75,7 @@ export const TextReveal = ({ children, className }: TextRevealProps) => {
         <motion.span
           variants={child}
           key={index}
-          style={{ display: "inline-block", marginRight: "0.25em" }}
+          style={{ willChange: "transform, opacity", display: "inline-block", marginRight: "0.25em" }}
         >
           {word}
         </motion.span>

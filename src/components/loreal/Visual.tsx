@@ -17,7 +17,7 @@ export default function Visual({ image, isHovered }: Readonly<VignetteVisualProp
             "flex h-full w-full transform items-end object-cover transition-transform duration-300 ease-in-out",
             isHovered ? "scale-105" : "scale-100"
           )}>
-          <div className={cn("absolute left-0 h-[65vmax] w-auto md:h-auto md:w-full", image.className)}>
+          <div className={cn("absolute left-0 h-[55hvmax] xs:h-[60vmax] lg:h-auto w-auto md:w-full", image.className)}>
             <img
               src={env.BASE_PATH + image.src}
               alt={image.alt}

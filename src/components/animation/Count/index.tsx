@@ -63,11 +63,11 @@ export const Count: React.FC<CountProps> = ({
   return (
     <span ref={ref}>
       <motion.span>
-      {showPlusSign && "+"}
+      {showPlusSign && "+ "}
         {addSpaceNumber
           ? displayValue.toLocaleString("fr-FR")
           : displayValue}
-        {showPercentage && "%"}
+        {showPercentage && " %"}
         {showAns && " ans"}
       </motion.span>
     </span>

@@ -102,7 +102,7 @@ export default function HeroArticle({
         <motion.div key={index} ref={layer.ref} className="absolute inset-0 h-full w-full overflow-hidden">
           {layer.elements.map((element, elIndex) => (
             <div key={elIndex} className={`absolute ${element.className}`} style={element.style}>
-              <img src={env.BASE_PATH + element.src} alt={element.alt} className="h-full w-full object-center" />
+              <img src={env.BASE_PATH + element.src} alt={element.alt} className="h-full w-full object-contain object-center" />
             </div>
           ))}
         </motion.div>

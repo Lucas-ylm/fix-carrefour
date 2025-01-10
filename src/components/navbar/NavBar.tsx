@@ -24,7 +24,7 @@ export default function NavBar() {
                 priority={true}
               />
               <p className="font-bitter italic font-light text-[13px]">
-                « La beauté est multiple, mais l’émotion du beau est universelle.»
+                «&nbsp;La beauté est multiple, mais l’émotion du beau est universelle.&nbsp;»
               </p>
             </div>
           </Link>
@@ -54,7 +54,7 @@ export default function NavBar() {
                 priority={true}
               />
               <p className="font-bitter italic font-light text-[13px]">
-                « J’ai compris que j’avais droit à ma beauté »
+                «&nbsp;J’ai compris que j’avais droit à ma beauté »
               </p>
             </div>
           </Link>
@@ -101,7 +101,7 @@ export default function NavBar() {
                 priority={true}
               />
               <p className="font-bitter italic font-light text-[13px]">
-                «Innovante, inclusive et plus responsable : nous sommes fiers de notre usine.»
+                «&nbsp;Innovante, inclusive et plus responsable : nous sommes fiers de notre usine.&nbsp;»
               </p>
             </div>
           </Link>

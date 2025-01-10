@@ -16,7 +16,7 @@ export const CoreTitle = ({ className, children, elementClassName = "" }: CoreTi
       <SlideIn>
         <h3
           className={cn(
-            "font-bitter text-[26px] font-bold italic leading-[34px] text-black lg:text-[56px] lg:leading-[72px]",
+            "font-bitter text-[37px] font-extrabold italic leading-[52px] text-black lg:text-[54px] lg:leading-[72px]",
             elementClassName
           )}>
           {children}

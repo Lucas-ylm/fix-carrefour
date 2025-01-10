@@ -26,19 +26,18 @@ export const Quote = ({
 }: QuoteProps) => {
   if (!children) return null;
 
-  const directionClass = direction === "left" ? "before:left-0" : "before:right-[20px]";
-  const directionQuoteClass = directionQuote === "right" ? "lg:left-[-50px]" : "lg:right-[-50px]";
+  const directionClass = direction === "left" ? "before:left-0 pl-0" : "before:right-[20px] pr-[20px]";
 
   return (
     <SlideIn elementClassName={elementClassName}>
       <div
-        className={`before:-h-full relative px-[10px] pb-10 pt-20 text-black before:absolute before:bottom-0 before:top-0 before:z-[-2] before:w-[1px] before:bg-black before:content-[''] ${directionClass} ${className}`}>
-            <div className="grid">
+        className={`before:h-[80px] relative w-[309px] pt-0 text-black before:absolute before:bottom-[0px] before:top-0 before:z-[-2] before:w-[0.5px] before:bg-black before:content-[''] ${directionClass} ${className}`}>
+            <div className="grid px-10">
               {pictureSrc && (
                 <ExportedPicture
                   className={cn(
-                    "grid-row-1 lg:px-8",
-                    direction === "left" ? "ml-[-12px] col-start-1 lg:ml-[-30px]" : "mr-[-10px] col-start-5 lg:mr-[-100px]"
+                    "grid-row-1 w-[272px] h-[340px] !object-contain",
+                    direction === "left" ? "ml-[-20px] col-start-1 lg:ml-[-30px]" : "col-start-1 lg:ml-[10px]"
                   )}
                   alt="Pauline Ngomé"
                   src={pictureSrc}
@@ -47,18 +46,16 @@ export const Quote = ({
               )}
             </div>
           <div
-            className={`relative ${directionQuoteClass} ${direction}-[-12px] lg:${direction}-[-50px] mb-5 flex h-fit bg-white px-0 font-bitter text-black`}>
+            className={`relative ${direction === "left" ? "left-[-25px] lg:right-[-50px]" : "right-[-25px] lg:right-[-50px]"} lg:${direction}-[-50px] mb-5 flex h-fit bg-white px-0 font-bitter text-black`}>
             <div className={`${direction === "left" ? "text-left" : "text-right"} w-full`}>
-              <p className="text-[22px] italic font-light leading-[34px] lg:text-[26px] pt-[20px]">{children}</p>
+              <p className="text-[22px] text-balance italic font-light leading-[34px] lg:text-[26px] pt-[20px]">{children}</p>
             </div>
           </div>
-          <div className="absolute z-[-1] top-1/2 right-[1%] w-full h-[60%] transform -translate-y-1/2 bg-white">
-          </div>
-          <div className={`px-10 font-roboto ${direction === "left" ? "text-left" : "text-right"}`}>
-            {author && <p className="text-[16px] font-bold lg:text-[20px]">{author}</p>}
+          <div className={`px-10 border-black border-solid font-roboto ${direction === "left" ? "text-left border-l-[1px]" : "text-right border-r-[1px]"}`}>
+            {author && <p className="font-bold text-[20px]">{author}</p>}
             {about && (
               <p
-                className="text-[14px] lg:text-[16px]"
+                className="text-[16px] text-balance"
                 dangerouslySetInnerHTML={{ __html: about }}
               ></p>
             )}

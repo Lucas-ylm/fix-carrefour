@@ -13,6 +13,7 @@ import NavBar from "@/components/navbar/NavBar";
 import SectionArticleHero from "@/components/sections/SectionArticleHero";
 import SectionVignettes from "@/components/sections/SectionVignettes";
 import Cookies from "@/components/templateComponent/Cookies";
+import ExportedPicture from "@/components/templateComponent/ExportedPicture";
 import { useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -61,18 +62,18 @@ export default function Article4() {
         subTitle="Les forces de la beauté"
         mainTitle={
           <>
-            «J’ai compris<br />que j’avais droit à<br />
-            <span className="font-extrabold italic">ma&nbsp;beauté</span>»
-            <span className="font-roboto text-[20px] font-bold inline lg:hidden lg:tracking-[-1px]"> Nantenin Keïta</span>
+            «&nbsp;J’ai compris<br />que j’avais droit à<br />
+            <span className="font-extrabold italic">ma&nbsp;beauté</span>.&nbsp;»
+            <span className="font-roboto text-[20px] font-bold inline lg:hidden lg:tracking-[-1px]"><br />Nantenin Keïta, para-athlète</span>
           </>
         }
-        mainSubTitle="Nantenin Keïta"
+        mainSubTitle="Nantenin Keïta, para-athlète"
         plane1="/assets/images/hero/keita-round.png"
         plane2="/assets/images/hero/keita-hero-shadow.png"
         plane3="/assets/images/hero/keita-hero.png"
-        plane1ClassName="bottom-0 w-full xs:w-[70%] lg:right-[5%] lg:bottom-0 lg:w-[42%]"
-        plane2ClassName="bottom-0 w-full xs:w-[70%] lg:right-[11%] lg:bottom-0 lg:w-[25%]"
-        plane3ClassName="bottom-0 w-full xs:w-[70%] lg:right-[14%] lg:bottom-0 lg:w-[25%]"
+        plane1ClassName="bottom-0 right-[10%] w-[80%] xs:right-[35%] xs:w-[60%] object-contain sm:w-[40%] sm:right-[44%] md:w-[40%] lg:right-[2%] xl:right-[3%] lg:bottom-[-3%] lg:w-[40%] xl:w-[44%]"
+        plane2ClassName="bottom-0 right-[0%] w-full h-[50vmax] object-contain xs:right-[12%] md:right-[42%] md:w-[40%] lg:right-[8%] lg:h-auto xl:right-[7%] lg:w-[24%] xl:w-[28%]"
+        plane3ClassName="bottom-0 right-[4%] w-full h-[50vmax] object-contain xs:right-[15%] md:right-[45%] md:w-[40%] lg:right-[10%] lg:h-auto xl:right-[10%] lg:w-[24%] xl:w-[28%]"
         backgroundClass="gradient-white"
       />
       
@@ -91,24 +92,35 @@ export default function Article4() {
         </div>
       </section>
 
-      <section className="marged my-20 grid lg:my-[70px]">
-        <div className="h-fit flex justify-end top-[120px] lg:sticky lg:col-start-1 lg:col-end-5 xl:col-start-2">
+      <section className="marged mt-20 mb-[40px] grid lg:my-[70px]">
+        <div className="h-fit justify-end top-[120px] hidden lg:sticky lg:block lg:col-start-1 lg:col-end-5 xl:col-start-2">
           <Quote
-            author="Nantenin Keita"
+            author="Nantenin Keïta"
             direction="right"
-            about={`Para-athlète spécialiste du sprint<br />et membre du collectif handisport<br />de L'Oréal Groupe.`}
+            about={`Para-athlète spécialiste du sprint et membre du collectif handisport de L'Oréal Groupe`}
             pictureSrc="/assets/images/article4/portrait-nantenin-keita.png"
-            elementClassName=""  
+            className="lg:mt-[0px]" 
           >
-            « La beauté du futur, <br /> c’est quand on ne parlera <br /> plus de beauté inclusive.»
+            «&nbsp;La beauté du futur, c’est quand on ne parlera plus de beauté inclusive.&nbsp;»
           </Quote>
         </div>
-        <div className="space-y-10 lg:col-start-7 lg:col-end-11 lg:space-y-[40px]">
+        <div className="grid lg:col-start-7 lg:col-end-11 space-y-[40px]">
           <Tag elementClassName="bg-[#F7DEA0]">Interview</Tag>
-          <Title elementClassName="mb-[unset]" level="h1">Nantenin Keita</Title>
+          <Title elementClassName="mb-[unset]" level="h1">Nantenin Keïta</Title>
           <CoreTextChapo elementClassName="lg:text-[18px]">
-            Para-athlète spécialiste du sprint et membre du collectif handisport du Groupe L’Oréal depuis 2022. Originaire du Mali, elle est déficiente visuelle et albinos. Avec son profil hors du commun, elle vit en dehors de la norme depuis son plus jeune âge, tout en incarnant une nouvelle forme de représentation de la différence. Nous avons souhaité lui donner la parole, afin de mieux comprendre la portée d’une « beauté qui fait avancer le monde ».
+            Para-athlète spécialiste du sprint et membre du collectif handisport du Groupe L’Oréal depuis 2022. Originaire du Mali, elle est déficiente visuelle et albinos. Avec son profil hors du commun, elle vit en dehors de la norme depuis son plus jeune âge, tout en incarnant une nouvelle forme de représentation de la différence. Nous avons souhaité lui donner la parole, afin de mieux comprendre la portée d’une <i>«&nbsp;beauté qui fait avancer le monde&nbsp;»</i>.
           </CoreTextChapo>
+          <div className="h-fit justify-end top-[120px] block lg:hidden pr-[10vw] justify-self-center base:col-start-1 base:col-end-13">
+            <Quote
+              author="Nantenin Keïta"
+              direction="right"
+              about={`Para-athlète spécialiste du sprint et membre du collectif handisport de L'Oréal Groupe`}
+              pictureSrc="/assets/images/article4/portrait-nantenin-keita.png"
+              className="lg:mt-[0px]"  
+            >
+              «&nbsp;La beauté du futur, <br /> c’est quand on ne parlera <br /> plus de beauté inclusive.&nbsp;»
+            </Quote>
+          </div>
           <HighlightText>Quel est votre rapport à la beauté&nbsp;?</HighlightText>
           <CoreTextITW>
             Pour moi, c’est important parce que je suis née albinos, et j’ai dû vivre avec une différence qui a pu impacter ma confiance en moi. En tant qu’athlète également, le rapport au corps est essentiel. Notre corps est notre outil, il est scruté, il peut être moqué s’il ne rentre pas dans les normes d’une beauté encore très codifiée. Pendant longtemps, je me suis interdit d’être coquette ou de prendre soin de moi. Je ne voulais pas faire de vagues, passer inaperçue. J’ai fini par me rendre compte que c’était impossible. Mon envie de m’exprimer par ma différence a fini par être plus forte. J’avais envie de jouer avec tout ce qui composait mon identité, que les gens me voient en tant que femme. Le déclic est arrivé quand j’ai commencé à prendre confiance en moi, quand j’ai réussi à me dire qu’être albinos ou déficiente visuelle, ce n’était pas forcément être moins bien. J’ai compris que j’avais droit à ma beauté, qu’il n’y a pas une beauté, mais que c’est quelque chose qui doit être personnalisé, propre à chacun et chacune.
@@ -121,12 +133,23 @@ export default function Article4() {
           <CoreTextITW>
             Nous avons progressé. Dans l’espace médiatique et dans la publicité par exemple, nous sommes en train de sortir de la beauté très codifiée qui régnait encore il y a quelques années. On voit des visages différents, des morphologies différentes. On aura bien avancé quand tout le monde sera en mesure de se trouver un modèle, une référence dans le monde de la beauté. Les marques ont également un rôle à jouer. Elles peuvent proposer des produits, des cosmétiques ou des vêtements pour tous. C’est un effort en cours, on le voit chez L’Oréal avec les différentes teintes que l’on peut trouver pour le maquillage, ou les efforts déployés pour que les produits soient utilisables par tous.
           </CoreTextITW>
-          <HighlightText>C’est le sens de votre partenariat avec le groupe L’Oréal&nbsp;?</HighlightText>
+          <HighlightText>C’est le sens de votre partenariat avec le Groupe L’Oréal&nbsp;?</HighlightText>
           <CoreTextITW>
             On s’apporte mutuellement. Quand j’ai signé ce partenariat, j’étais très heureuse car il réunit tout ce que j’aime. La beauté et la possibilité de pouvoir s’exprimer au travers de sa beauté. La possibilité de montrer que l’on est bien comme on est. Quand le Groupe L’Oréal a pensé à mon profil, ça m’a renforcée dans l’idée que l’on peut être belle et albinos. C’est un partenariat qui me représente sous toutes mes facettes : en tant que sportive, en tant que femme, comme personne différente, albinos, ou en tant que nana qui aime faire sa <i>skincare</i>¹ tous les soirs !
           </CoreTextITW>
+        </div>
+      </section>
+      
+      <section className="marged my-[40px] grid lg:mt-[40px] lg:mb-[75px]">
+        <div className="base:col-start-1 base:col-end-13 lg:pt-[20px]">
           <p className="text-[12px] font-roboto font-light">(1) [Traduction] : Routine beauté</p>
         </div>
+
+        <ExportedPicture
+          src="/assets/images/article4/img-nantenin.png"
+          alt="Citation de Marie Robert"
+          className="pt-[20px] lg:pt-[40px] aspect-[16/9] w-full base:col-start-1 base:col-end-13"
+        />
       </section>
 
       <SectionVignettes

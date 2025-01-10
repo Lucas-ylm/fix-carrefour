@@ -39,7 +39,7 @@ export default function Vignette({
     <Link href={`/${slug}`}>
       <motion.div
         style={width > 768 ? { y } : { y: 0 }}
-        className={`relative h-[calc(100vh-10rem)] w-[89vw] overflow-hidden xs:w-[45vw] lg:w-[30vw] xl:w-[22vw]`}
+        className={`relative h-[calc(100vh-10rem)] w-[89vw] overflow-hidden xs:w-[58vw] sm:w-[47vw] md:w-[42vw] lg:w-[30vw] xl:w-[22vw]`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}>
         <div className={`absolute left-0 top-0 h-full w-full ${currentBackgroundClass}`} />
