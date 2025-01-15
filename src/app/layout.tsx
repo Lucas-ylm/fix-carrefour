@@ -9,6 +9,8 @@ import LazySvg from "@/components/svgComponent/LazySvg";
 import ATInternet from "@/components/templateComponent/ATInternet";
 import styles from "./layout.module.scss";
 import { ContextProvider } from "@/components/context/Context";
+import { TransitionProvider } from "../components/context/TransitionContext";
+import Transition from "../components/Transition/index";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(env.BASE_URL),
   title: {
     template: "%s | Le Monde",
-    default: "L'Oréal, la beauté créatrice | Le Monde",
+    default: "L'Oréal Groupe, la beauté créatrice | Le Monde",
   },
   description: "« Créer la beauté qui fait avancer le monde », telle est la raison d’être de L’Oréal.",
   icons: [
@@ -41,21 +43,21 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.lemonde.fr",
-    title: "L'Oréal, la beauté créatrice | Le Monde",
+    title: "L'Oréal Groupe, la beauté créatrice | Le Monde",
     description: "« Créer la beauté qui fait avancer le monde », telle est la raison d’être de L’Oréal.",
-    siteName: "Boilerplate MPublicité",
+    siteName: "M Publicité",
     images: [
       {
-        url: `${env.BASE_PATH}/og/loreal-opengraph.jpg`,
+        url: `${env.BASE_PATH}/og/loreal-opengraph.png`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@lemondefr",
-    creator: "@matt_ojs",
-    images: `${env.BASE_PATH}/og/loreal-twitter.jpg`,
-    title: "L'Oréal, la beauté créatrice | Le Monde",
+    creator: "@ionaoui",
+    images: `${env.BASE_PATH}/og/loreal-twitter.png`,
+    title: "L'Oréal Groupe, la beauté créatrice | Le Monde",
     description: "« Créer la beauté qui fait avancer le monde », telle est la raison d’être de L’Oréal.",
   },
 };
@@ -66,23 +68,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body className={`${roboto.variable} ${bitter.variable}`}>
-        <ContextProvider>
-          <Header
-            logoBrand={
-              <a href="https://www.loreal.com/fr/" target="_blank" rel="noreferrer">
-                <LazySvg name="loreal-groupe" width={90} height={58} />
-              </a>
-            }
-            isMenu={true}
-          />
-          <main className={styles.main}>{children}</main>
-          <Script src="https://cmp.lemonde.fr/js/tcfv2-stub.min.js"></Script>
-          <Script async src="https://cmp.lemonde.fr/js/lemonde.min.js"></Script>
-          <ATInternet chapter1="la-beaute-creatrice" chapter2="la-beaute-creatrice.lemonde.fr" />
-        </ContextProvider>
-      </body>
-    </html>
+    <TransitionProvider>
+      <html lang="fr">
+        <body className={`${roboto.variable} ${bitter.variable}`}>
+          <ContextProvider>
+            <Header
+              logoBrand={
+                <a href="https://www.loreal.com/fr/" target="_blank" rel="noreferrer">
+                  <LazySvg name="loreal-groupe" width={90} height={58} />
+                </a>
+              }
+              isMenu={true}
+            />
+            <Transition>
+              <main className={styles.main}>{children}</main>
+            </Transition>
+            <Script src="https://cmp.lemonde.fr/js/tcfv2-stub.min.js"></Script>
+            <Script async src="https://cmp.lemonde.fr/js/lemonde.min.js"></Script>
+            <ATInternet chapter1="la-beaute-creatrice" chapter2="la-beaute-creatrice.lemonde.fr" />
+          </ContextProvider>
+        </body>
+      </html>
+    </TransitionProvider>
   );
 }

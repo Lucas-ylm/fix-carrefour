@@ -71,9 +71,6 @@ export default function Article2() {
         plane1="/assets/images/hero/emballage-round.png"
         plane2="/assets/images/hero/emballage-shadow.png"
         plane3="/assets/images/hero/emballage.png"
-        plane1ClassName="bottom-0 w-[90%] xs:w-[50%] right-[5%] xs:h-[45vmax] xs:bottom-[-10%] xs:right-[40%] md:w-[40%] md:right-[45%] lg:h-auto lg:right-[6%] lg:bottom-0 lg:w-[38%]"
-        plane2ClassName="bottom-[20px] w-full xs:w-[70%] right-[-2%] xs:right-[28%] h-[45vmax] lg:h-auto lg:right-[17%] lg:bottom-[2%] lg:w-[10%]"
-        plane3ClassName="bottom-[20px] w-full xs:w-[70%] h-[45vmax] lg:h-auto lg:right-[19%] lg:bottom-[2%] lg:w-[10%]"
         backgroundClass="gradient-white"
       />
       
@@ -149,7 +146,7 @@ export default function Article2() {
             />
             <p className="font-roboto font-bold text-[20px]">
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber showPercentage start={0} end={87} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber showPercentage start={0} end={87} duration={1} delay={0.5} />
               </span>
             </p>
             <p className="font-roboto text-balance font-bold text-[20px]">de plastique PET recyclé 
@@ -164,7 +161,7 @@ export default function Article2() {
             />
             <p className="font-roboto font-bold text-[20px]">
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber showPercentage start={0} end={99} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber showPercentage start={0} end={99} duration={1} delay={0.5} />
               </span>
             </p>
             <p className="font-roboto font-bold text-[20px]">
@@ -182,7 +179,7 @@ export default function Article2() {
             />
             <p className="font-roboto font-bold text-[20px]">
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber showPercentage start={0} end={20} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber showPercentage start={0} end={20} duration={1} delay={0.5} />
               </span>
             </p>
             <p className="font-roboto font-bold text-[20px]">
@@ -202,7 +199,7 @@ export default function Article2() {
           ]}
         />
         <CoreText 
-          className="base:col-start-5 text-end base:col-end-13 lg:col-start-10 lg:col-end-13 xl:col-start-10 xl:col-end-13 pt-[20px]"
+          className="base:col-start-1 text-end base:col-end-13 lg:col-start-1 lg:col-end-13 xl:col-start-1 xl:col-end-13 pt-[20px]"
           elementClassName="text-[14px] text-end lg:!text-[16px] !font-light !font-roboto"
         >
           Dernières innovations de produits rechargeables sur les marques de L'Oréal&nbsp;Groupe
@@ -261,7 +258,7 @@ export default function Article2() {
         </CoreText>
       </section>
 
-      <section className="marged mt-[40px] mb-[75px] lg:my-[100px] grid">
+      <section className="marged mt-[40px] lg:mt-[100px] grid">
         <div className="lg:col-start-1 lg:col-end-13 space-y-12 lg:space-y-[16px]">
           <p className=" bg-[#E8E7E3] rounded-[3px] text-center lg:text-start px-[20px] py-[10px] flex tracking-wider justify-center uppercase underline w-full font-roboto text-[10px]">
             <a href="https://www.loreal.com/fr/groupe/decouvrir-loreal/raison-detre/reduire-les-emballages-plastique/" target="_blank">Pour plus d’informations sur la transformation des emballages du Groupe L’Oréal : https://www.loreal.com/fr/groupe/decouvrir-loreal/raison-detre/reduire-les-emballages-plastique/</a>

@@ -74,9 +74,6 @@ export default function Usine() {
         plane1="/assets/images/usine/hero-round.png"
         plane2="/assets/images/usine/hero-shadow.png"
         plane3="/assets/images/usine/hero.png"
-        plane1ClassName="bottom-0 w-full xs:w-[70%] sm:w-[55%] xs:right-[28%] md:w-[50%] lg:right-[2%] lg:bottom-[-3%] lg:w-[45%]"
-        plane2ClassName="bottom-0 w-full xs:w-[70%] right-[-4%] h-[45vmax] sm:w-[55%] md:h-auto xs:right-[20%] md:w-[50%] lg:right-[5%] lg:bottom-0 lg:w-[37%]"
-        plane3ClassName="bottom-0 w-full xs:w-[70%] right-[0%] h-[45vmax] sm:w-[55%] md:h-auto xs:right-[28%] md:w-[50%] lg:right-[10%] lg:bottom-0 lg:w-[37%]"
         backgroundClass="gradient-white"
       />
 
@@ -91,7 +88,7 @@ export default function Usine() {
       </section>
 
       <section className="marged my-10 grid lg:my-20">
-        <div className="sticky hidden lg:block top-[120px] h-fit base:col-start-1 base:col-end-12 lg:col-start-3 lg:col-end-6">
+        <div className="sticky hidden lg:block top-[120px] h-fit base:col-start-1 base:col-end-12 lg:col-start-2 lg:col-end-7 pr-[20px]">
           <Quote
             direction="left"
             className=""
@@ -171,13 +168,13 @@ export default function Usine() {
             commerciale extérieure française</p>
             <p className="font-roboto font-bold text-[20px]">
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber start={0} end={11} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber start={0} end={11} duration={1} delay={0.5} />
               </span> usines <br />
             <span className="text-[36px]">
-              <Count style="mid" addSpaceNumber showPlusSign start={0} end={15500} duration={1} delay={1} />
+              <Count style="mid" addSpaceNumber showPlusSign start={0} end={15500} duration={1} delay={0.5} />
             </span> collaborateurs <br />
             <span className="text-[36px]">
-              <Count style="mid" addSpaceNumber start={0} end={79000} duration={1} delay={1} />
+              <Count style="mid" addSpaceNumber start={0} end={79000} duration={1} delay={0.5} />
             </span> emplois générés⁴</p>
           </div>
           <div className="flex flex-col items-center text-center">
@@ -190,17 +187,17 @@ export default function Usine() {
             <h2 className="font-bitter font-light text-[46px]">Focus usine de Caudry</h2>
             <p className="font-roboto font-bold text-[20px]">
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber start={0} end={55} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber start={0} end={55} duration={1} delay={0.5} />
               </span> ans <br />
             <span className="text-[36px]">
-              <Count style="mid" addSpaceNumber showPercentage start={0} end={100} duration={1} delay={1} />
+              <Count style="mid" addSpaceNumber showPercentage start={0} end={100} duration={1} delay={0.5} />
             </span> énergie renouvelable depuis 2021 <br />
             <span className="text-[36px]">
-              <Count style="mid" addSpaceNumber start={0} end={500} duration={1} delay={1} />
+              <Count style="mid" addSpaceNumber start={0} end={500} duration={1} delay={0.5} />
             </span> collaborateurs</p>
             <p className="font-roboto font-bold text-[20px]">Près de&nbsp;
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber start={0} end={5000} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber start={0} end={5000} duration={1} delay={0.5} />
               </span> <br />
             emplois générés dans la Région par le Groupe⁵</p>
           </div>
@@ -217,7 +214,7 @@ export default function Usine() {
         </div>
       </section>
 
-      <section className="marged pb-[75px] lg:my-[100px] grid">
+      <section className="marged lg:mt-[100px] grid">
         <div className="lg:col-start-1 lg:col-end-13 space-y-[40px]">
           <p className=" bg-[#E8E7E3] rounded-[3px] text-center lg:text-start px-[20px] py-[10px] flex tracking-wider justify-center uppercase underline w-full font-roboto text-[10px]">
             <a href="https://www.loreal.com/fr/articles/group/semaine-de-lindustrie/" target="_blank">Pour plus d’informations sur l’ancrage industriel de L’Oréal en France : https://www.loreal.com/fr/articles/group/semaine-de-lindustrie/</a></p>

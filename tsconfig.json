@@ -40,7 +40,7 @@
     ".next/types/**/*.ts",
     "dist/types/**/*.ts",
     "next.config.mjs",
-    "prettier.config.mjs",
+    "prettier.config.mjs", "src/components/context/TransitionContext.js", "src/components/Transition/index.jsx",
   ],
   "exclude": ["node_modules", "out"]
 }

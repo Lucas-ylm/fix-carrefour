@@ -1,7 +1,6 @@
 "use client";
 import { useWindowSize } from "@/components/hook/useWindowSize";
 import { AnimatedText } from "@/components/loreal/AnimatedText";
-import { CoreText } from "@/components/loreal/CoreText";
 import { CoreTextChapo } from "@/components/loreal/CoreTextChapo";
 import { CoreTextITW } from "@/components/loreal/CoreTextITW";
 import { HighlightText } from "@/components/loreal/HighlightText";
@@ -68,12 +67,9 @@ export default function Article4() {
           </>
         }
         mainSubTitle="Nantenin Keïta, para-athlète"
-        plane1="/assets/images/hero/keita-round.png"
+        plane1="/assets/images/hero/emballage-round.png"
         plane2="/assets/images/hero/keita-hero-shadow.png"
         plane3="/assets/images/hero/keita-hero.png"
-        plane1ClassName="bottom-0 right-[10%] w-[80%] xs:right-[35%] xs:w-[60%] object-contain sm:w-[40%] sm:right-[44%] md:w-[40%] lg:right-[2%] xl:right-[3%] lg:bottom-[-3%] lg:w-[40%] xl:w-[44%]"
-        plane2ClassName="bottom-0 right-[0%] w-full h-[50vmax] object-contain xs:right-[12%] md:right-[42%] md:w-[40%] lg:right-[8%] lg:h-auto xl:right-[7%] lg:w-[24%] xl:w-[28%]"
-        plane3ClassName="bottom-0 right-[4%] w-full h-[50vmax] object-contain xs:right-[15%] md:right-[45%] md:w-[40%] lg:right-[10%] lg:h-auto xl:right-[10%] lg:w-[24%] xl:w-[28%]"
         backgroundClass="gradient-white"
       />
       
@@ -99,7 +95,8 @@ export default function Article4() {
             direction="right"
             about={`Para-athlète spécialiste du sprint et membre du collectif handisport de L'Oréal Groupe`}
             pictureSrc="/assets/images/article4/portrait-nantenin-keita.png"
-            className="lg:mt-[0px]" 
+            className="lg:mt-[0px]"
+            className2="justify-self-end left-[20px]"
           >
             «&nbsp;La beauté du futur, c’est quand on ne parlera plus de beauté inclusive.&nbsp;»
           </Quote>
@@ -117,6 +114,7 @@ export default function Article4() {
               about={`Para-athlète spécialiste du sprint et membre du collectif handisport de L'Oréal Groupe`}
               pictureSrc="/assets/images/article4/portrait-nantenin-keita.png"
               className="lg:mt-[0px]"  
+              className2="justify-self-end left-[20px]"
             >
               «&nbsp;La beauté du futur, <br /> c’est quand on ne parlera <br /> plus de beauté inclusive.&nbsp;»
             </Quote>
@@ -140,15 +138,15 @@ export default function Article4() {
         </div>
       </section>
       
-      <section className="marged my-[40px] grid lg:mt-[40px] lg:mb-[75px]">
-        <div className="base:col-start-1 base:col-end-13 lg:pt-[20px]">
+      <section className="marged mt-[40px] grid lg:mt-[40px]">
+        <div className="base:col-start-1 lg:col-start-2 base:col-end-13 lg:pt-[20px]">
           <p className="text-[12px] font-roboto font-light">(1) [Traduction] : Routine beauté</p>
         </div>
 
         <ExportedPicture
           src="/assets/images/article4/img-nantenin.png"
           alt="Citation de Marie Robert"
-          className="pt-[20px] lg:pt-[40px] aspect-[16/9] w-full base:col-start-1 base:col-end-13"
+          className="pt-[20px] lg:pt-[30px] aspect-[16/9] w-full base:col-start-1 base:col-end-13 lg:col-start-2 lg:col-end-12"
         />
       </section>
 

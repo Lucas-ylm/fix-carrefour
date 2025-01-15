@@ -74,9 +74,6 @@ export default function Article3() {
         plane1="/assets/images/hero/emmaus-round.png"
         plane2="/assets/images/hero/emmaus-shadow.png"
         plane3="/assets/images/hero/emmaus.png"
-        plane1ClassName="bottom-0 w-full xs:w-[50%] xs:right-[28%] md:w-[40%] lg:right-[2%] xl:right-[12%] lg:bottom-[-3%] lg:w-[50%] xl:w-[38%]"
-        plane2ClassName="bottom-0 w-full right-[-4%] xs:w-[50%] xs:right-[24%] md:w-[40%] lg:right-[0%] xl:right-[7%] lg:bottom-0 lg:w-[50%] xl:w-[37%]"
-        plane3ClassName="bottom-0 w-full xs:w-[50%] xs:right-[28%] md:w-[40%] lg:right-[2%] xl:right-[10%] lg:bottom-0 lg:w-[50%] xl:w-[37%]"
         backgroundClass="noise-bg-article-3"
       />
       
@@ -98,7 +95,7 @@ export default function Article3() {
           </CoreTextITW>
         </div>
         <ExportedPicture
-          className="mt-[20px] w-full object-cover object-center base:col-start-1 base:col-end-13 lg:col-start-8 lg:col-end-13 xl:col-end-12"
+          className="mt-[20px] base:col-start-1 base:col-end-13 lg:col-start-8 lg:col-end-13 xl:col-end-12"
           alt="Biologie"
           src="/assets/images/article3/image-article3.webp"
           priority={true}
@@ -136,6 +133,7 @@ export default function Article3() {
             author="Lotfi Ouanezar"
             about={`Directeur général d'EMMAÜS Solidarité`}
             pictureSrc="/assets/images/article3/portrait1-article3.png"
+            className2="justify-self-end left-[20px]"
           >
             «&nbsp;La beauté, n’est pas la cerise sur le gâteau. C’est le gâteau lui-même.&nbsp;»
           </Quote>
@@ -161,14 +159,14 @@ export default function Article3() {
         </CoreText>
       </section>
 
-      <section className="marged relative space-y-[40px] lg:space-y-[unset] grid md:mb-[95px]">
+      <section className="marged relative space-y-[40px] lg:space-y-[unset] grid">
         <CoreTitle className="flex pt-[0px] base:col-start-1 base:col-end-13 lg:col-start-5 lg:col-end-12 lg:pb-[40px]">
           Une initiative utile
         </CoreTitle>
         <CoreText className="flex base:col-start-1 base:col-end-13 lg:col-start-5 lg:col-end-12 xl:col-end-11 lg:block">
           Le positionnement des espaces beauté et bien-être au coeur des enjeux de société leur a permis de trouver une place naturelle auprès des acteurs sociaux et des personnes accompagnées. Plus de 11&nbsp;200 personnes ont bénéficié de soins, alors que 35&nbsp;000 produits ont été distribués en à peine trois ans. De nombreux partenaires associatifs et collectivités s’appuient désormais sur les espaces dans le cadre de leurs programmes d’accompagnement. <i>«&nbsp;Ils sont une vingtaine à nous orienter des personnes aujourd’hui. Cela va des mairies d’arrondissement aux associations partenaires&nbsp;»</i>, détaille Lotfi Ouanezar. Des indicateurs plus inattendus, comme la forte proportion d’hommes accompagnés, soulignent également la pertinence du modèle. <i>«&nbsp;Nous pensions toucher essentiellement des femmes, mais à notre grande surprise, 38&nbsp;% de la fréquentation est réalisée par des hommes&nbsp;»</i>, indique Lotfi Ouanezar. Ces constats, associés à l’engouement des villes qui accueillent les espaces beauté et bien-être, laissent imaginer un déploiement de cette initiative sur l’ensemble du territoire dans un futur proche.
         </CoreText>
-        <div className="lg:col-start-1 lg:col-end-13 pb-[40px] lg:pt-[120px]">
+        <div className="lg:col-start-1 lg:col-end-13 lg:pt-[120px]">
           <p className="text-[12px] font-roboto font-light">(1) [Traduction] : Renforcement de la confiance en soi</p>
         </div>
 
@@ -182,7 +180,7 @@ export default function Article3() {
             />
             <div className="font-roboto text-[24px] font-bold md:text-[36px]">
               <AnimatedContainer balise="div" trigger="load" direction="up">
-                <Count style="mid" addSpaceNumber={true} showPlusSign start={0} end={11200} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber={true} showPlusSign start={0} end={11200} duration={1} delay={0.5} />
               </AnimatedContainer>
             </div>
             <p className="pb-[40px] font-roboto text-[12px] font-bold md:text-[18px]">bénéficiaires de soin</p>
@@ -196,7 +194,7 @@ export default function Article3() {
             />
             <div className="font-roboto text-[24px] font-bold md:text-[36px]">
               <AnimatedContainer balise="div" trigger="load" direction="up">
-                <Count style="mid" addSpaceNumber={true} showPlusSign start={0} end={35000} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber={true} showPlusSign start={0} end={35000} duration={1} delay={0.5} />
               </AnimatedContainer>
             </div>
             <p className="font-roboto text-[12px] font-bold md:text-[18px]">produits distribués</p>

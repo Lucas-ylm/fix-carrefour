@@ -43,7 +43,11 @@ export default function Hero() {
   return (
     <div onMouseMove={manageMouseMove} style={{ height: "100vh", width: "100vw", overflow: "hidden" }}>
       <motion.div ref={plane3} className="absolute inset-0 h-full w-full overflow-hidden">
-        <div className="noise-black absolute left-[50.4%] top-[0%] h-[100vh] w-[59vw] lg:left-[50.4%] lg:top-[0%] lg:h-[100%] lg:w-[65vw]"></div>
+        <ExportedPicture className="right-0 w-full h-full ml-[25%] !object-cover" src="/assets/images/hero/bghome-black.png" alt="bg" />
+      </motion.div>
+      
+      <motion.div ref={plane3} className="absolute inset-0 h-full w-full overflow-hidden">
+        <ExportedPicture className="right-1/2 w-full h-full mr-[25%] !object-cover" src="/assets/images/hero/bghome-white.png" alt="bg" />
       </motion.div>
       <motion.div ref={plane2} className="absolute inset-0 h-full w-full overflow-hidden">
         <div className="relative flex h-full items-end justify-center">

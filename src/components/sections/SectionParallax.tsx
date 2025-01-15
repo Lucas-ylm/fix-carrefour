@@ -1,8 +1,6 @@
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef } from "react";
 import { MotionValue } from "framer-motion";
-import { throttle } from "lodash";
 import { CoreText } from "../loreal/CoreText";
-import SectionVignettes from "./SectionVignettes";
 import { AnimatedText } from "../loreal/AnimatedText";
 
 type Props = {
@@ -10,29 +8,10 @@ type Props = {
 };
 
 const SectionParallax = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { scrollYProgress } = props;
-  const [isAtBottom, setIsAtBottom] = useState(false);
-  const [isDragging] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      setIsAtBottom(scrollTop + windowHeight >= documentHeight);
-    }, 100);
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      handleScroll.cancel();
-    };
-  }, []);
 
   return (
     <div className="relative h-fit w-full">
-      <div className="marged grid overflow-hidden py-20 lg:py-48">
+      <div className="marged grid overflow-hidden pt-20 lg:pt-48">
         <AnimatedText
           className="mb-20 base:col-start-2 base:col-end-12 lg:col-start-2 lg:col-end-12 xl:col-start-2 xl:col-end-12"
         >
@@ -71,13 +50,6 @@ const SectionParallax = forwardRef<HTMLDivElement, Props>((props, ref) => {
           </CoreText>
         </div>
       </div>
-
-      <SectionVignettes
-        isAtBottom={isAtBottom}
-        scrollYProgress={scrollYProgress}
-        isDragging={isDragging}
-        sortFunction={[5, 3, 4, 1, 2, 7, 6]}
-      />
     </div>
   );
 });

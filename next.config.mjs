@@ -1,10 +1,10 @@
 const baseConfig =
   process.env.BUILD_DEST === "preview"
     ? {
-        basePath: process.env.NODE_ENV === "production" ? "/clients/loreal-2025" : "",
+        basePath: process.env.NODE_ENV === "production" ? "/clients/loreal-2026" : "",
         env: {
-          BASE_PATH: process.env.NODE_ENV === "production" ? "/clients/loreal-2025" : "",
-          BASE_URL: "https://madlab.mpublicite.fr/clients/loreal-2025",
+          BASE_PATH: process.env.NODE_ENV === "production" ? "/clients/loreal-2026" : "",
+          BASE_URL: "https://madlab.mpublicite.fr/clients/loreal-2026",
         },
       }
     : {

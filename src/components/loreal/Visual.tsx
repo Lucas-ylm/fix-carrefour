@@ -15,13 +15,13 @@ export default function Visual({ image, isHovered }: Readonly<VignetteVisualProp
         <div
           className={cn(
             "flex h-full w-full transform items-end object-cover transition-transform duration-300 ease-in-out",
-            isHovered ? "scale-105" : "scale-100"
+            isHovered ? "scale-110" : "scale-100"
           )}>
-          <div className={cn("absolute left-0 h-[55hvmax] xs:h-[60vmax] lg:h-auto w-auto md:w-full", image.className)}>
+          <div className={cn("absolute left-0 h-[55vmax] xs:h-[60vmax] lg:h-[23vmax] w-auto md:w-full", image.className)}>
             <img
               src={env.BASE_PATH + image.src}
               alt={image.alt}
-              className="z-[-1] h-full w-full object-cover object-center"
+              className="z-[-1] h-full w-full object-contain object-center"
             />
           </div>
         </div>

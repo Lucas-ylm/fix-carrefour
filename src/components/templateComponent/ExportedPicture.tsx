@@ -35,45 +35,45 @@ export default function ExportedPicture({
   if (env.DEV) {
     return (
       <div className={`relative ${className} ${styles.exportedImage}`}>
+        {credit && (
+          <div className="absolute -bottom-[1rem] left-2 z-10">
+            <p className="text-white font-light font-roboto text-[12px] px-2 py-1">
+              {credit}
+            </p>
+          </div>
+        )}
         <img
           src={env.BASE_PATH + src}
           alt={alt}
           width={width}
           height={height}
-          className={className}
+          className={`w-full h-full object-cover ${className} object-center`}
           loading={priority ? "eager" : "lazy"}
           style={style}
         />
-        {credit && (
-          <div className="absolute bottom-2 left-2">
-            <p className="text-white font-light font-roboto text-[12px] px-2 py-1 reverse-text">
-              {credit}
-            </p>
-          </div>
-        )}
       </div>
     );
   }
 
   return (
     <div className={`relative ${className} ${styles.exportedImage}`}>
+      {credit && (
+        <div className="absolute -bottom-[1rem] left-2 z-10">
+          <p className="text-white font-light font-roboto text-[12px] px-2 py-1">
+            {credit}
+          </p>
+        </div>
+      )}
       <img
         src={env.BASE_PATH + src}
         alt={alt}
         width={width}
         height={height}
-        className={className}
+        className={`w-full h-full object-cover ${className} object-center`}
         loading={priority ? "eager" : "lazy"}
         style={style}
       />
-      {credit && (
-        <div className="absolute bottom-2 left-2">
-          <p className="text-white font-light font-roboto text-[12px] px-2 py-1 reverse-text">
-            {credit}
-          </p>
-        </div>
-      )}
-    </div>
+  </div>
   );
 }
 

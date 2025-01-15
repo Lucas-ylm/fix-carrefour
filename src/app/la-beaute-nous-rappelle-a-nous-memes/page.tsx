@@ -1,22 +1,23 @@
+// @ts-nocheck
 "use client";
 import { useWindowSize } from "@/components/hook/useWindowSize";
-import { AnimatedText } from "@/components/loreal/AnimatedText";
-import { CoreText } from "@/components/loreal/CoreText";
 import { CoreTextChapo } from "@/components/loreal/CoreTextChapo";
 import { CoreTextITW } from "@/components/loreal/CoreTextITW";
 import { CoreTitle } from "@/components/loreal/CoreTitle";
 import { HighlightText } from "@/components/loreal/HighlightText";
 import { Quote } from "@/components/loreal/Quote";
 import { Tag } from "@/components/loreal/Tag";
-import { Title } from "@/components/loreal/Title";
 import Menu from "@/components/modal/Menu";
 import NavBar from "@/components/navbar/NavBar";
 import SectionArticleHero from "@/components/sections/SectionArticleHero";
 import SectionVignettes from "@/components/sections/SectionVignettes";
 import Cookies from "@/components/templateComponent/Cookies";
 import ExportedPicture from "@/components/templateComponent/ExportedPicture";
+import { useGSAP } from "@gsap/react";
 import { useScroll } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { TransitionContext } from "../../components/context/TransitionContext.js";
+import gsap from "gsap";
 
 export default function Article5() {
   const container = useRef<HTMLDivElement>(null);
@@ -24,6 +25,16 @@ export default function Article5() {
     target: container,
     offset: ["start start", "end end"],
   });
+
+  const { timeline } = useContext(TransitionContext);
+  const container2 = useRef(null);
+  const image = useRef<HTMLDivElement>(null);
+
+  useGSAP( () => {
+    const targets = gsap.utils.toArray(["p", "h1", "h2", "span", image.current])
+    gsap.fromTo(targets, {x: -30, opacity: 0}, {x: 0, opacity: 1, stagger: 0.21})
+    timeline.add(gsap.to(container2.current, { opacity: 0 }))
+  }, {scope: container2})
 
   const { width } = useWindowSize();
 
@@ -58,32 +69,31 @@ export default function Article5() {
   }, [isAtBottom]);
 
   return (
-    <>
-      <SectionArticleHero
-        subTitle="Les forces de la beauté"
-        mainTitle={
-          <span className="not-italic">
-            «&nbsp;La beauté est multiple, <br /> mais 
-            l’émotion du beau <br /> est <span className="italic font-extrabold">universelle</span>.&nbsp;» 
-            <span className="font-roboto text-[20px] font-bold inline lg:hidden lg:tracking-[-1px]"> <br /> Marie Robert,&nbsp;philosophe</span>
-          </span>
-        }
-        mainSubTitle="Marie Robert,&nbsp;philosophe"
-        plane1="/assets/images/hero/marie-robert-circle.png"
-        plane2="/assets/images/hero/marie-robert-ombre.png"
-        plane3="/assets/images/hero/marie-robert-portrait.png"
-        plane1ClassName="bottom-[0%] w-[75%] right-[10%] xs:bottom-[-18%] xs:w-[50%] xs:right-[38%] md:w-[40%] lg:right-[5%] lg:bottom-[-10%] lg:w-[42%]"
-        plane2ClassName="bottom-[-18%] w-full xs:w-[50%] -right-[4%] xs:right-[38%] md:w-[40%] lg:right-[7%] lg:bottom-0 lg:w-[30%]"
-        plane3ClassName="bottom-[-18%] w-full xs:w-[50%] xs:right-[40%] md:w-[40%] lg:right-[10%] lg:bottom-0 lg:w-[30%]"
-        backgroundClass="gradient-white"
-      />
+    <div ref={container2}>
+      <div ref={image}>
+        <SectionArticleHero
+          subTitle="Les forces de la beauté"
+          mainTitle={
+            <span className="not-italic">
+              «&nbsp;La beauté est multiple, <br /> mais 
+              l’émotion du beau <br /> est <span className="italic font-extrabold">universelle</span>.&nbsp;» 
+              <span className="font-roboto text-[20px] font-bold inline lg:hidden lg:tracking-[-1px]"> <br /> Marie Robert,&nbsp;philosophe</span>
+            </span>
+          }
+          mainSubTitle="Marie Robert,&nbsp;philosophe"
+          plane1="/assets/images/hero/marie-robert-circle.png"
+          plane2="/assets/images/hero/marie-robert-ombre.png"
+          plane3="/assets/images/hero/marie-robert-portrait.png"
+          backgroundClass="gradient-white"
+        />
+      </div>
       
       <Menu>
         <NavBar />
       </Menu>
 
       <section className="marged grid pt-20 lg:pt-28">
-        <div className="h-fit top-[120px] hidden lg:sticky lg:block lg:col-start-3 lg:col-end-6">
+        <div className="h-fit top-[120px] hidden lg:sticky lg:block lg:col-start-2 lg:col-end-6">
           <Quote
             direction="left"
             className="lg:mt-[0px]"
@@ -151,15 +161,15 @@ export default function Article5() {
         </div>
       </section>
       
-      <section className="marged my-[40px] grid">
-        <div className="base:col-start-1 base:col-end-13 pt-[20px]">
+      <section className="marged mt-[40px] grid">
+        <div className="base:col-start-1 lg:col-start-2 base:col-end-13 pt-[20px]">
           <p className="text-[12px] font-roboto font-light">(1) [Traduction] : Largement plébicitées</p>
         </div>
 
         <ExportedPicture
           src="/assets/images/article5/img-marie-robert.png"
           alt="Citation de Marie Robert"
-          className="pt-[40px] aspect-[16/9] base:col-start-1 base:col-end-13"
+          className="pt-[30px] aspect-[16/9] base:col-start-1 base:col-end-13 lg:col-start-2 lg:col-end-12"
         />
       </section>
 
@@ -171,6 +181,6 @@ export default function Article5() {
         sortFunction={[5, 3, 4, 1, 2, 7, 6]}
       />
       <Cookies />
-    </>
+    </div>
   );
 }

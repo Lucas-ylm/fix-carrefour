@@ -65,9 +65,6 @@ export default function BeautyTech() {
         plane1="/assets/images/beauty-tech/hero-round.png"
         plane2="/assets/images/beauty-tech/hero-shadow.png"
         plane3="/assets/images/beauty-tech/hero.png"
-        plane1ClassName="bottom-0 w-full xs:w-[70%] md:h-[50vmax] lg:h-auto lg:right-[2%] lg:bottom-[-3%] lg:w-[43%]"
-        plane2ClassName="bottom-0 w-full xs:w-[70%] md:h-[60vmax] lg:h-auto lg:right-[3%] lg:bottom-0 lg:w-[37%]"
-        plane3ClassName="bottom-0 w-full xs:w-[70%] md:h-[60vmax] lg:h-auto lg:right-[0%] lg:bottom-0 lg:w-[37%]"
         backgroundClass="gradient-white"
       />
       
@@ -92,7 +89,7 @@ export default function BeautyTech() {
       <section className="marged my-[40px] grid lg:my-32">
         <Quote
           direction="left"
-          elementClassName="base:col-start-1 base:col-end-13 pl-[12vw] lg:pl-[unset] justify-self-center lg:col-start-2 lg:col-end-6"
+          elementClassName="base:col-start-1 base:col-end-13 pl-[12vw] lg:pl-[unset] justify-self-center lg:col-start-3 lg:col-end-7"
           pictureSrc="/assets/images/beauty-tech/guive-quote.png"
           author="Guive Balooch"
           about={`Directeur Beauté Augmentée et Open Innovation chez L’Oréal Groupe`}
@@ -120,9 +117,8 @@ export default function BeautyTech() {
             { src: "/assets/images/carousel/FranckRaux.jpg", alt: "Image 4", credit: "Princesse d’Este © 2016 GrandPalaisRMN (musée du Louvre) - Franck Raux" },
             { src: "/assets/images/carousel/SylvieChanLiat.jpg", alt: "Image 5", credit: "Table de toilette © 2021 GrandPalaisRMN (musée du Louvre) - Sylvie Chan-Liat" },
           ]}
-        />
-        <CoreText 
-          className="base:col-start-5 text-end base:col-end-13 lg:col-start-10 lg:col-end-13 xl:col-start-10 xl:col-end-13 pt-[20px]"
+        />        <CoreText 
+          className="base:col-start-1 text-end base:col-end-13 lg:col-start-1 lg:col-end-13 xl:col-start-1 xl:col-end-13 pt-[20px]"
           elementClassName="text-[14px] text-end lg:!text-[16px] !font-light !font-roboto"
         >
           Aperçu des oeuvres du parcours «&nbsp;De&nbsp;toutes&nbsp;beautés&nbsp;!&nbsp;»
@@ -133,7 +129,7 @@ export default function BeautyTech() {
         <div className="centered-content space-y-10 base:col-start-1 base:col-end-12 lg:space-y-20">
           <CoreTitle>Beauty Tech, pour une beauté toujours plus personnalisée</CoreTitle>
           <CoreText>
-            Aujourd’hui, avec l’entrée dans une ère numérique, l’humanité a passé un nouveau seuil technologique. La naissance de celui que l’anthropologue Élisabeth Azoulay désigne comme Homo faber 2.0 dans le dernier tome de <span className="font-bold italic">100 000 ans de beauté (Gallimard, 2024)</span>, soutenu par le Groupe L’Oréal, s’accompagne de nouveaux outils qui n’ont pas épargné le secteur de la beauté. <i>«&nbsp;Pour le Groupe L’Oréal, l’idée de Beauty Tech est née en 2010, dans le sillage du e-commerce et des réseaux sociaux. Elle a pris une nouvelle ampleur en 2018 avec le lancement du programme Beauty Tech, dont l’ambition est de mettre la technologie au service d’une beauté plus personnalisée, plus inclusive et plus durable&nbsp;»</i>, explique Béatrice Dautzenberg. Elle s’incarne dans une série d’innovations emblématiques, toutes destinées à «&nbsp;augmenter&nbsp;» l’expérience, la créativité ou les performances beauté pour celui ou celle qui les utilise. La technologie Colorsonic de L’Oréal Paris, qui a demandé près de dix années de recherche et développement, permet d’appliquer une couleur d’un simple geste, sans manipulation complexe. Beauty Genius de L’Oréal Paris, véritable assistant personnel de beauté, propose quant à lui d’échanger avec une IA sur toutes les questions de beauté les plus intimes, de réaliser des diagnostics, ou de recevoir des recommandations personnalisées.
+            Aujourd’hui, avec l’entrée dans une ère numérique, l’humanité a passé un nouveau seuil technologique. La naissance de celui que l’anthropologue Élisabeth Azoulay désigne comme Homo faber 2.0 dans le dernier tome de <strong className="italic">100 000 ans de beauté (Gallimard, 2024)</strong>, soutenu par le Groupe L’Oréal, s’accompagne de nouveaux outils qui n’ont pas épargné le secteur de la beauté. <i>«&nbsp;Pour le Groupe L’Oréal, l’idée de Beauty Tech est née en 2010, dans le sillage du e-commerce et des réseaux sociaux. Elle a pris une nouvelle ampleur en 2018 avec le lancement du programme Beauty Tech, dont l’ambition est de mettre la technologie au service d’une beauté plus personnalisée, plus inclusive et plus durable&nbsp;»</i>, explique Béatrice Dautzenberg. Elle s’incarne dans une série d’innovations emblématiques, toutes destinées à «&nbsp;augmenter&nbsp;» l’expérience, la créativité ou les performances beauté pour celui ou celle qui les utilise. La technologie Colorsonic de L’Oréal Paris, qui a demandé près de dix années de recherche et développement, permet d’appliquer une couleur d’un simple geste, sans manipulation complexe. Beauty Genius de L’Oréal Paris, véritable assistant personnel de beauté, propose quant à lui d’échanger avec une IA sur toutes les questions de beauté les plus intimes, de réaliser des diagnostics, ou de recevoir des recommandations personnalisées.
           </CoreText>
         </div>
         <AnimatedText className="my-10 base:col-start-1 base:col-end-12 lg:col-start-3 lg:col-end-11 xl:col-start-4 xl:col-end-10 lg:my-[40px]">
@@ -154,10 +150,10 @@ export default function BeautyTech() {
             { src: "/assets/images/carousel/beaute.jpg", alt: "Image 3", credit: "L’Oréal, Beauty Genius, application utilisant l’IA pour délivrer des conseils beauté" },
             { src: "/assets/images/carousel/soignes.jpg", alt: "Image 4", credit: "Steampod, lisseur à vapeur pour des cheveux lissés et soignés" },
             { src: "/assets/images/carousel/shampoing.jpg", alt: "Image 5", credit: "Water Saver, la douchette professionnelle réduisant de l'utilisation d'eau à chaque shampoing" },
+            { src: "/assets/images/carousel/new-beauty-tech.png", alt: "Image 6", credit: "L’Oréal Cell BioPrint, un appareil compact permettant de réaliser une analyse personnalisée de sa peau" },
           ]}
-        />
-        <CoreText 
-          className="base:col-start-5 text-end base:col-end-13 lg:col-start-10 lg:col-end-13 xl:col-start-10 xl:col-end-13 pt-[20px]"
+        />        <CoreText 
+          className="base:col-start-1 text-end base:col-end-13 lg:col-start-1 lg:col-end-13 xl:col-start-1 xl:col-end-13 pt-[20px]"
           elementClassName="text-[14px] text-end lg:!text-[16px] !font-light !font-roboto"
         >
           Les dernières innovations présentées par L'Oréal&nbsp;Groupe
@@ -173,7 +169,7 @@ export default function BeautyTech() {
         </div>
         <Quote
           direction="left"
-          elementClassName="grid-row-1 hidden lg:block lg:col-start-9 lg:col-end-13"
+          elementClassName="grid-row-1 hidden lg:block lg:col-start-8 lg:col-end-11"
           pictureSrc="/assets/images/beauty-tech/beatrice-quote.png"
           author="Béatrice Dautzenberg"
           about={`Directrice des services Beauty Tech chez L’Oréal Groupe`}
@@ -191,10 +187,10 @@ export default function BeautyTech() {
         </Quote>
       </section>
 
-      <section className="marged mb-[75px] grid">
+      <section className="marged grid">
         <div className="lg:col-start-1 lg:col-end-13 space-y-12 lg:space-y-[40px]">
-          <p className=" bg-[#E8E7E3] rounded-[3px] text-center lg:text-start px-[20px] py-[10px] flex tracking-wider justify-center uppercase underline w-full font-roboto text-[10px]">
-            <a href="https://www.loreal.com/fr/articles/group/semaine-de-lindustrie/" target="_blank">Pour plus d’informations sur l’ancrage industriel de L’Oréal en France : https://www.loreal.com/fr/articles/group/semaine-de-lindustrie/</a></p>
+          <p className=" bg-[#E8E7E3] rounded-[3px] text-center px-[20px] py-[10px] flex tracking-wider justify-center uppercase underline w-full font-roboto text-[10px]">
+            <a href="https://www.loreal-finance.com/fr/actualite/au-ces-2025-loreal-groupe-devoile-loreal-cell-bioprint-revolution-lanalyse-approfondie" target="_blank">Découvrez l’actualité Beauty Tech de L’Oréal Groupe au CES 2025 de Las Vegas : https://www.loreal-finance.com/fr/actualite/au-ces-2025-loreal-groupe-devoile-loreal-cell-bioprint-revolution-lanalyse-approfondie</a></p>
         </div>
       </section>
 

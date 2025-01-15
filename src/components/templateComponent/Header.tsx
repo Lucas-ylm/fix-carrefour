@@ -10,7 +10,7 @@ export default function Header({ logoBrand, isMenu }: Props) {
   return (
     <header className={styles.header}>
       <div className={styles.first}>
-        <Link
+        <Link scroll={false}
           href="https://www.lemonde.fr"
           target="_blank"
           rel="noreferrer"

@@ -71,9 +71,6 @@ export default function Article1() {
         plane1="/assets/images/hero/science-vertes-round.webp"
         plane2="/assets/images/hero/science-vertes-hero-shadow.png"
         plane3="/assets/images/hero/science-vertes-hero.png"
-        plane1ClassName="bottom-0 w-full xs:w-[70%] xs:h-[50vmax] lg:right-[5%] lg:h-auto lg:w-[42%]"
-        plane2ClassName="bottom-0 w-full xs:w-[70%] xs:h-[50vmax] lg:right-[0%] lg:h-auto lg:w-[48%]"
-        plane3ClassName="bottom-0 w-full xs:w-[70%] xs:h-[50vmax] lg:right-[0%] lg:h-auto lg:w-[48%]"
         backgroundClass="gradient-white"
       />
       
@@ -114,13 +111,13 @@ export default function Article1() {
           <h2 className="font-bitter font-light pt-[10px] text-[46px]">La Recherche L'Oréal en&nbsp;France</h2>
           <p className="font-roboto font-bold text-[20px]">
             <span className="text-[36px]">
-            <Count style="mid" addSpaceNumber start={0} end={8} duration={1} delay={1} />
+            <Count style="mid" addSpaceNumber start={0} end={8} duration={2} delay={0.5} />
             </span> centres de recherches <br />
           <span className="text-[36px]">
-            <Count style="mid" addSpaceNumber start={0} end={2700} duration={1} delay={1} />
+            <Count style="mid" addSpaceNumber start={0} end={2700} duration={2} delay={0.5} />
           </span> collaborateurs <br />
           <span className="text-[36px]">
-            <Count style="mid" addSpaceNumber showPercentage start={0} end={70} duration={1} delay={1} />
+            <Count style="mid" addSpaceNumber showPercentage start={0} end={70} duration={2} delay={0.5} />
           </span> des investissements du groupe 
           en recherche et développement</p>
       </section>
@@ -161,7 +158,7 @@ export default function Article1() {
             />
             <p className="font-roboto text-balance font-bold text-[20px]">
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber showPercentage start={0} end={95} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber showPercentage start={0} end={95} duration={1} delay={0.5} />
               </span>
             </p>
             <p className="font-roboto font-bold text-[20px]">d'ingrédients biosourcés, 
@@ -178,7 +175,7 @@ export default function Article1() {
             />
             <p className="font-roboto font-bold text-[20px]">
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber showPercentage start={0} end={82} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber showPercentage start={0} end={82} duration={1} delay={0.5} />
               </span>
             </p>
             <p className="font-roboto text-balance font-bold text-[20px]">du portefeuille de matière premières biodégradables en 2023</p>
@@ -202,7 +199,7 @@ export default function Article1() {
             />
             <p className="font-roboto text-balance font-bold text-[20px]">
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber showPercentage start={0} end={95} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber showPercentage start={0} end={95} duration={1} delay={0.5} />
               </span>
             </p>
             <p className="font-roboto font-bold text-[20px]">d'ingrédients biosourcés, <br />
@@ -219,7 +216,7 @@ export default function Article1() {
             />
             <p className="font-roboto font-bold text-[20px]">
               <span className="text-[36px]">
-                <Count style="mid" addSpaceNumber showPercentage start={0} end={82} duration={1} delay={1} />
+                <Count style="mid" addSpaceNumber showPercentage start={0} end={82} duration={1} delay={0.5} />
               </span>
             </p>
             <p className="font-roboto text-balance font-bold text-[20px]">du portefeuille de matière premières  <br />biodégradables en 2023</p>
@@ -277,12 +274,12 @@ export default function Article1() {
         </div>
       </section>
 
-      <section className="marged mb-[75px] lg:my-[100px] grid">
+      <section className="marged lg:mt-[100px] grid">
         <div className="lg:col-start-1 lg:col-end-13 space-y-[40px] lg:space-y-[20px]">
           <p className=" bg-[#E8E7E3] rounded-[3px] text-center lg:text-start px-[20px] py-[10px] flex tracking-wider justify-center uppercase underline w-full font-roboto text-[10px]">
             <a href="https://www.loreal.com/fr/groupe/decouvrir-loreal/raison-detre/green-sciences" target="_blank"> Pour plus d’informations sur les Sciences Vertes : https://www.loreal.com/fr/groupe/decouvrir-loreal/raison-detre/green-sciences</a></p>
           <p className="font-roboto font-light leading-[24px] text-[12px]">
-            (1) [Source] : <a className="hover:underline" href="https://www.notre-environnement.gouv.fr/themes/societe/article/limites-planetaires" target="_blank"> https://www.notre-environnement.gouv.fr/themes/societe/article/limites-planetaires</a> <br />
+            (1) Source : <a className="hover:underline" href="https://www.notre-environnement.gouv.fr/themes/societe/article/limites-planetaires" target="_blank"> https://www.notre-environnement.gouv.fr/themes/societe/article/limites-planetaires</a> <br />
             (2) [Traduction] : Notation<br />
             (3) [Traduction] : Outil pour l’optimisation environnementale des produits
           </p>

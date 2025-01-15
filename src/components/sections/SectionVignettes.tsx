@@ -1,11 +1,17 @@
-import { useRef, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+"use client";
+import { useRef, useEffect } from "react";
+import { motion, MotionValue } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Vignette from "../loreal/Vignette";
+import vignetteData from "@/lib/vignettesData";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type SectionVignettesProps = {
   isAtBottom: boolean;
-  scrollYProgress: import("framer-motion").MotionValue<number>;
   isDragging: boolean;
+  scrollYProgress: MotionValue<number>;
   slug?: string;
   customClass?: string;
   sortFunction?: number[];
@@ -26,123 +32,6 @@ type VignetteData = {
   image: VignetteImageProps;
 };
 
-const vignetteData: VignetteData[] = [
-  {
-    title: "La beauté, de la nature au flacon",
-    waitingTitle: (
-      <span>
-        Investir dans les <span className="font-bold italic">Sciences Vertes</span> pour la transformation durable
-      </span>
-    ),
-    waitingText: undefined,
-    isActive: true,
-    slug: "les-sciences-vertes-ou-quand-la-beaute-s-inspire-de-la-nature",
-    image: {
-      className: "vignette-visual",
-      src: "/assets/images/vignettes/vignette-science.png",
-      alt: "visu-article-1",
-    },
-  },
-  {
-    title: "La beauté, de la nature au flacon",
-    waitingTitle: (
-      <span>
-        Plus circulaire, innovant et allégé&nbsp;: <span className="font-bold italic">l’emballage </span>
-        fait sa mue
-      </span>
-    ),
-    waitingText: undefined,
-    isActive: true,
-    slug: "emballages-une-question-de-ressources",
-    image: {
-      className: "vignette-visual",
-      src: "/assets/images/vignettes/vignette-emballage.png",
-      alt: "visu-article-2",
-    },
-  },
-  {
-    title: "Les forces de la beauté",
-    waitingTitle: (
-      <span>
-        EMMAÜS Solidarité et L'Oréal&nbsp;: quand la beauté <span className="font-bold italic">nous relie</span>
-      </span>
-    ),
-    waitingText: undefined,
-    isActive: true,
-    slug: "emmaus-solidarite-et-loreal",
-    image: {
-      className: "vignette-visual",
-      src: "/assets/images/vignettes/vignette-emmaus.png",
-      alt: "visu-article-3",
-    },
-  },
-  {
-    title: "Les forces de la beauté",
-    waitingTitle: (
-      <span>
-        «&nbsp;J’ai compris que j’avais droit à <span className="font-bold italic">ma&nbsp;beauté</span>.&nbsp;»
-      </span>
-    ),
-    waitingText: undefined,
-    isActive: true,
-    slug: "jai-compris-que-javais-droit-a-ma-beaute",
-    image: {
-      className: "vignette-visual",
-      src: "/assets/images/vignettes/vignette-beaute.png",
-      alt: "visu-article-4",
-    },
-  },
-  {
-    title: "Les forces de la beauté",
-    waitingTitle: (
-      <span>
-        «&nbsp;La beauté est multiple, mais l’émotion du beau est <span className="font-bold italic">universelle</span>.&nbsp;»
-      </span>
-    ),
-    waitingText: undefined,
-    isActive: true,
-    slug: "la-beaute-nous-rappelle-a-nous-memes",
-    image: {
-      className: "vignette-visual",
-      src: "/assets/images/vignettes/vignette-universelle.png",
-      alt: "visu-article-5",
-    },
-  },
-  {
-    title: "La beauté de demain",
-    waitingTitle: (
-      <span className="text-balance">
-        <span className="font-bold italic">Beauté augmentée</span> et quête&nbsp;d'humanité
-      </span>
-    ),
-    waitingText: undefined,
-    isActive: true,
-    slug: "beaute-augmentee-et-quete-humanite",
-    image: {
-      className: "vignette-visual",
-      src: "/assets/images/vignettes/vignette-tech.png",
-      alt: "visu-article-6",
-    },
-  },
-  {
-    title: "La beauté de demain",
-    waitingTitle: (
-      <span>
-        «&nbsp;Innovante, inclusive et plus responsable&nbsp;:
-        <span className="font-bold italic"> nous sommes fiers</span> de notre usine.&nbsp;»
-      </span>
-    ),
-    waitingText: undefined,
-    isActive: true,
-    slug: "innovante-inclusive-et-plus-responsable",
-    image: {
-      className: "-bottom-10",
-      src: "/assets/images/vignettes/vignette-usine.png",
-      alt: "visu-article-7",
-    },
-  },
-];
-
 export default function SectionVignettes({
   isAtBottom,
   scrollYProgress,
@@ -151,85 +40,73 @@ export default function SectionVignettes({
   customClass,
   sortFunction = [],
 }: Readonly<SectionVignettesProps>) {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const scrollPosition = useRef(0);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
-  const [, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollLeft = scrollPosition.current;
-    }
-  }, [isAtBottom]);
+    const container = containerRef.current;
+    if (!container) return;
 
-  const handleScrollCapture = (e: React.UIEvent<HTMLDivElement>) => {
-    scrollPosition.current = e.currentTarget.scrollLeft;
-  };
+    gsap.set(container, { willChange: "transform" });
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setTimeout(() => {
-      e.preventDefault();
-      setIsDragging(true);
-      if (scrollContainerRef.current) {
-        startX.current = e.pageX - scrollContainerRef.current.offsetLeft;
+    const totalScroll = container.scrollWidth - container.offsetWidth;
+
+    gsap.fromTo(
+      container,
+      { x: 0 },
+      {
+        x: -totalScroll,
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          start: "top top",
+          pin: true,
+          scrub: window.innerWidth <= 768 ? 1.3 : window.innerWidth <= 1024 ? 0.75 : 1,
+          anticipatePin: 1,
+          end: () => "+=" + totalScroll,
+        },
       }
-      scrollLeft.current = scrollContainerRef.current?.scrollLeft ?? 0;
-    }, 100);
-  };
+    );
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseLeave = () => {
-    handleMouseUp();
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-
-    const x = e.pageX - scrollContainerRef.current!.offsetLeft;
-    const walk = x - startX.current;
-    scrollContainerRef.current!.scrollLeft = scrollLeft.current - walk;
-  };
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   const sortedVignettes = sortFunction.length
-    ? sortFunction.map((index) => vignetteData[index - 1]).filter((vignette) => vignette)
+    ? sortFunction
+        .map((index) => vignetteData[index - 1])
+        .filter((v) => v)
     : vignetteData;
 
   return (
-    <section
-      draggable="false"
-      className={`grab-cursor relative h-[calc(100vh-10rem)] w-screen select-none ${isDragging ? "cursor-grabbing" : ""} ${customClass ?? ""}`}
-      style={{
-        overflowX: "auto",
-        overflowY: "hidden",
-        scrollbarWidth: "none",
-      }}
-      onScrollCapture={handleScrollCapture}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}>
-      <motion.div className="flex w-fit" ref={scrollContainerRef}>
-        {sortedVignettes
-          .filter((data) => data?.slug !== slug)
-          .map((data, index) => (
-            <Vignette
-              key={`${index}-${data?.slug}`}
-              index={index}
-              length={sortedVignettes.length}
-              scrollYProgress={scrollYProgress}
-              title={data?.title ?? ""}
-              waitingTitle={data?.waitingTitle}
-              waitingText={data?.waitingText}
-              slug={data?.slug ?? ""}
-              image={data?.image}
-            />
-          ))}
-      </motion.div>
-    </section>
+    <div className="relative overflow-hidden">
+      <section
+        ref={containerRef}
+        suppressHydrationWarning
+        className={`relative w-screen h-screen pt-[10rem] ${customClass ?? ""}`}
+      >
+        <motion.div className="flex w-auto h-full">
+          {sortedVignettes
+            .filter(
+              (data): data is VignetteData =>
+                data !== undefined && data.slug !== slug
+            )
+            .map((data, index) => (
+              <div key={data.slug} className="w-full h-full">
+                <Vignette
+                  index={index}
+                  title={data?.title ?? ""}
+                  waitingTitle={data?.waitingTitle}
+                  waitingText={data?.waitingText}
+                  slug={data?.slug ?? ""}
+                  image={data?.image}
+                  scrollYProgress={scrollYProgress}
+                  length={sortedVignettes.length}
+                />
+              </div>
+            ))}
+        </motion.div>
+      </section>
+    </div>
   );
 }

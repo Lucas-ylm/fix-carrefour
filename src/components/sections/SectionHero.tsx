@@ -20,7 +20,8 @@ export default function SectionHero({ scrollYProgress }: Readonly<SectionHeroPro
 
       <Hero />
 
-      <div className="pointer-events-none">
+      {width > 768 && (
+        <div className="pointer-events-none">
         <div className="pointer-events-none absolute inset-0 flex flex-col items-end justify-end pb-[15px] pr-[15px]">
           <p className="text-white font-[12px] font-roboto">CreAITech & Ogilvy Paris générée par l'IA</p>
         </div>
@@ -32,19 +33,19 @@ export default function SectionHero({ scrollYProgress }: Readonly<SectionHeroPro
             className="text-center z-10 font-roboto text-[26px] font-normal text-white transition-transform duration-300 hover:translate-y-[10px]"
           />
         </div>
-      </div>
+        </div>
+      )}
 
       <div
         className="pointer-events-none absolute inset-0"
       >
-        <div className="flex h-full w-full flex-col font-bitter">
-          <h1 className="mt-[115px] ml-[20px] text-start text-[48px] font-light leading-[100%] text-black lg:mt-[145px] lg:ml-[40px] lg:text-[72px] lg:leading-[100%]">
-            L'Oréal {width < 768 && <br />} Groupe,<br />
-            la <span className="font-black">beauté <br /> créatrice</span>
+        <div className="flex h-full w-full flex-col font-bitter lg:items-center lg:justify-center">
+          <h1 className="mt-[145px] text-center text-[42px] xss:text-[56px] font-light leading-[100%] text-white lg:mt-[0] lg:text-[77px] lg:leading-[100%]">
+            La beauté <br />
+            <span className="font-black">créatrice</span>
           </h1>
         </div>
       </div>
-
 
     </motion.section>
   );
