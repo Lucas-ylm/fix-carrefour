@@ -114,7 +114,7 @@ export default function Article2() {
         <ExportedPicture
           className="base:col-start-1 base:col-end-13 lg:col-start-1 lg:col-end-6 lg:w-[100%]"
           alt="Luxe"
-          src="/assets/images/article2/luxe2.png"
+          src="/assets/images/article2/recharge.jpg"
           priority={true}
         />
         <CoreText className="lg:col-start-7 lg:col-end-12 lg:mt-20 self-center">
@@ -196,6 +196,8 @@ export default function Article2() {
             { src: "/assets/images/carousel/2024-06-13.jpg", alt: "Image 2"},
             { src: "/assets/images/carousel/LRP_LIPIKAR_VISUEL_CAMPAGNE.jpg", alt: "Image 3"},
             { src: "/assets/images/carousel/PradaBeauty.jpg", alt: "Image 4"},
+            { src: "/assets/images/carousel/LOREAL_0414376_ORI.jpg", alt: "Image 5"},
+            { src: "/assets/images/carousel/luxe2.png", alt: "Image 6"},
           ]}
         />
         <CoreText 

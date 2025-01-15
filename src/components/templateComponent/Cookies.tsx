@@ -12,7 +12,7 @@ export default function Cookies() {
         <a className={`iubenda-cs-preferences-link ${styles.manage}`} href="#">
           Gestion des cookies
         </a>
-        <Link scroll={false}
+        <Link 
           className={styles.legal}
           href="https://moncompte.lemonde.fr/mentions-legales"
           target="_blank"

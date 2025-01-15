@@ -1,7 +1,5 @@
-// @ts-nocheck
 "use client";
-
-import React, { useContext, useRef } from "react";
+import React, { useContext, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Menu from "@/components/modal/Menu";
 import NavBar from "@/components/navbar/NavBar";
@@ -19,13 +17,20 @@ export default function Home() {
   });
 
   const { timeline } = useContext(TransitionContext);
-  const image = useRef<HTMLDivElement>(null);
+  const image = useRef();
 
-  useGSAP( () => {
-    const targets = gsap.utils.toArray(["p", image.current])
-    gsap.fromTo(targets, {x: -30, opacity: 0}, {x: 0, opacity: 1, stagger: 0.25})
-    timeline.add(gsap.to(container.current, { opacity: 0 }))
-  }, {scope: container})
+  useLayoutEffect(() => {
+    if (!container.current) return;
+  
+    const targets = gsap.utils.toArray(["p", image.current]);
+    gsap.fromTo(
+      targets,
+      { x: -30, opacity: 0 },
+      { x: 0, opacity: 1, stagger: 0.25 }
+    );
+  
+    timeline.add(gsap.to(container.current, { opacity: 0, duration: 0.5 }));
+  }, [container.current]);
 
   console.log("v2");
   return (

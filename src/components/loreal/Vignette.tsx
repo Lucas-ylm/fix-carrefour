@@ -7,6 +7,7 @@ import Visual from "./Visual";
 import Content from "./Content";
 
 import { VignetteImageProps } from "../sections/SectionVignettes";
+import TransitionLink from "../layout/TransitionLink";
 
 type VignetteProps = {
   index: number;
@@ -36,7 +37,7 @@ export default function Vignette({
   const y = useTransform(scrollYProgress ?? new MotionValue(), [0, 0.95], [240 * index, 0]);
 
   return (
-    <Link scroll={false} href={`/${slug}`}>
+    <TransitionLink href={`/${slug}`}>
       <motion.div
         style={width > 768 ? { y } : { y: 0 }}
         className={`relative h-[calc(100vh-10rem)] w-[89vw] overflow-hidden xs:w-[58vw] sm:w-[47vw] md:w-[42vw] lg:w-[30vw] xl:w-[22vw]`}
@@ -47,6 +48,6 @@ export default function Vignette({
         <Visual image={image} isHovered={isHovered} />
         <Content title={title} waitingTitle={waitingTitle} waitingText={waitingText} isHovered={isHovered} />
       </motion.div>
-    </Link>
+    </TransitionLink>
   );
 }

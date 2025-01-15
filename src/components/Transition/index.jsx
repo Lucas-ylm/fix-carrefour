@@ -12,18 +12,18 @@ export default function TransitionLayout({ children }) {
     const { contextSafe } = useGSAP(); 
 
     const exit = contextSafe( () => {
-        timeline.play().then( () => {
-            window.scrollTo(0, 0)
+        timeline.eventCallback("onComplete", () => {
+            window.scrollTo(0, 0);
             setDisplayChildren(children);
             timeline.pause().clear();
-        })
+          });
+          console.log("Timeline children:", timeline.getChildren());
+          timeline.play();
     })
     
     useGSAP(() => {
         //if page is not the current page
-        if (children.key !== displayChildren.key) {
             exit();            
-        }
 
     }, [children]) 
 

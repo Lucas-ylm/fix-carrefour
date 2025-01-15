@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 import { useWindowSize } from "@/components/hook/useWindowSize";
 import { CoreTextChapo } from "@/components/loreal/CoreTextChapo";
@@ -15,7 +14,7 @@ import Cookies from "@/components/templateComponent/Cookies";
 import ExportedPicture from "@/components/templateComponent/ExportedPicture";
 import { useGSAP } from "@gsap/react";
 import { useScroll } from "framer-motion";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { TransitionContext } from "../../components/context/TransitionContext.js";
 import gsap from "gsap";
 
@@ -27,14 +26,20 @@ export default function Article5() {
   });
 
   const { timeline } = useContext(TransitionContext);
-  const container2 = useRef(null);
-  const image = useRef<HTMLDivElement>(null);
+  const image = useRef();
 
-  useGSAP( () => {
-    const targets = gsap.utils.toArray(["p", "h1", "h2", "span", image.current])
-    gsap.fromTo(targets, {x: -30, opacity: 0}, {x: 0, opacity: 1, stagger: 0.21})
-    timeline.add(gsap.to(container2.current, { opacity: 0 }))
-  }, {scope: container2})
+  useLayoutEffect(() => {
+    if (!container.current) return;
+  
+    const targets = gsap.utils.toArray(["p", image.current]);
+    gsap.fromTo(
+      targets,
+      { x: -30, opacity: 0 },
+      { x: 0, opacity: 1, stagger: 0.25 }
+    );
+  
+    timeline.add(gsap.to(container.current, { opacity: 0, duration: 0.5 }));
+  }, [container.current]);
 
   const { width } = useWindowSize();
 
@@ -69,7 +74,7 @@ export default function Article5() {
   }, [isAtBottom]);
 
   return (
-    <div ref={container2}>
+    <div ref={container}>
       <div ref={image}>
         <SectionArticleHero
           subTitle="Les forces de la beauté"
@@ -87,7 +92,7 @@ export default function Article5() {
           backgroundClass="gradient-white"
         />
       </div>
-      
+
       <Menu>
         <NavBar />
       </Menu>

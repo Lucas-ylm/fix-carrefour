@@ -2,6 +2,7 @@
 import AnimatedContainer from "@/components/animation/AnimatedContainer";
 import { Count } from "@/components/animation/Count";
 import Parallax from "@/components/animation/Parallax";
+import { TransitionContext } from "@/components/context/TransitionContext";
 import { useWindowSize } from "@/components/hook/useWindowSize";
 import { AnimatedText } from "@/components/loreal/AnimatedText";
 import { Block } from "@/components/loreal/Block";
@@ -17,15 +18,33 @@ import SectionArticleHero from "@/components/sections/SectionArticleHero";
 import SectionVignettes from "@/components/sections/SectionVignettes";
 import Cookies from "@/components/templateComponent/Cookies";
 import ExportedPicture from "@/components/templateComponent/ExportedPicture";
+import { useGSAP } from "@gsap/react";
 import { useScroll } from "framer-motion";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 export default function Article3() {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
-  });
+  });  
+  
+  const { timeline } = useContext(TransitionContext);
+  const image = useRef();
+
+  useLayoutEffect(() => {
+    if (!container.current) return;
+  
+    const targets = gsap.utils.toArray(["p", image.current]);
+    gsap.fromTo(
+      targets,
+      { x: -30, opacity: 0 },
+      { x: 0, opacity: 1, stagger: 0.25 }
+    );
+  
+    timeline.add(gsap.to(container.current, { opacity: 0, duration: 0.5 }));
+  }, [container.current]);
 
   const { width } = useWindowSize();
 
@@ -60,22 +79,24 @@ export default function Article3() {
   }, [isAtBottom]);
 
   return (
-    <>
-      <SectionArticleHero
-        subTitle="Les forces de la beauté"
-        mainTitle={
-          <span>
-            EMMAÜS {width < 768 && <br />} Solidarité {width > 768 && <br />} et L'Oréal : {width < 768 && <br />}
-            quand
-            {width > 768 && <br />} la beauté {width < 768 && <br />}
-            <span className="font-extrabold italic">nous&nbsp;relie</span>
-          </span>
-        }
-        plane1="/assets/images/hero/emmaus-round.png"
-        plane2="/assets/images/hero/emmaus-shadow.png"
-        plane3="/assets/images/hero/emmaus.png"
-        backgroundClass="noise-bg-article-3"
-      />
+    <div ref={container}>
+      <div ref={image}>
+        <SectionArticleHero
+          subTitle="Les forces de la beauté"
+          mainTitle={
+            <span>
+              EMMAÜS {width < 768 && <br />} Solidarité {width > 768 && <br />} et L'Oréal : {width < 768 && <br />}
+              quand
+              {width > 768 && <br />} la beauté {width < 768 && <br />}
+              <span className="font-extrabold italic">nous&nbsp;relie</span>
+            </span>
+          }
+          plane1="/assets/images/hero/emmaus-round.png"
+          plane2="/assets/images/hero/emmaus-shadow.png"
+          plane3="/assets/images/hero/emmaus.png"
+          backgroundClass="noise-bg-article-3"
+        />
+      </div>
       
       <Menu>
         <NavBar />
@@ -210,6 +231,6 @@ export default function Article3() {
         sortFunction={[5, 3, 4, 1, 2, 7, 6]}
       />
       <Cookies />
-    </>
+    </div>
   );
 }
